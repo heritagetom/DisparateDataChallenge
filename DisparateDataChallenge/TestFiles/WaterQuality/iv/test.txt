@@ -1,0 +1,27 @@
+# ---------------------------------- WARNING ----------------------------------------
+# Provisional data are subject to revision. Go to
+# http://help.waterdata.usgs.gov/policies/provisional-data-statement for more information.
+#
+# File-format description:  http://help.waterdata.usgs.gov/faq/about-tab-delimited-output
+# Automated-retrieval info: http://help.waterdata.usgs.gov/faq/automated-retrievals
+#
+# Contact:   gs-w_support_nwisweb@usgs.gov
+# retrieved: 2016-09-01 08:56:48 -04:00	(natwebsdas01)
+#
+# Data for the following 1 site(s) are contained in this file
+#    USGS 01372043 HUDSON RIVER NEAR POUGHKEEPSIE NY
+# -----------------------------------------------------------------------------------
+#
+# TS_ID - An internal number representing a time series.
+#
+# Data provided for site 01372043
+#    TS_ID       Parameter Description
+#    107096      62619     Estuary or ocean water surface elevation above NGVD 1929, feet
+#    107097      62620     Estuary or ocean water surface elevation above NAVD 1988, feet
+#
+# Data-value qualification codes included in this output:
+#     P  Provisional data subject to revision.
+#
+agency_cd	site_no	datetime	tz_cd	107096_62619	107096_62619_cd	107097_62620	107097_62620_cd
+5s	15s	20d	6s	14n	10s	14n	10s
+USGS	01372043	2016-09-01 06:45	EST	-0.42	P	-1.29	P
