@@ -20,7 +20,8 @@ public class MainFrame {
 
 	private JFrame frame;
 	
-	JLabel lblWaterQualServices = new JLabel();
+	JLabel lblWaterQualServices = new JLabel("Web Services");
+	JLabel lblDatalink = new JLabel("Datalink:");
 	
 	JComboBox<String> comboBox_Database = new JComboBox<String>();
 	JComboBox<String> comboBox_WMS= new JComboBox<String>();
@@ -86,7 +87,8 @@ public class MainFrame {
 	                	comboBox_Imagery.setVisible(false);
 	                	comboBox_Raw.setVisible(false);
 	                	comboBox_Humanitarian.setVisible(false);
-	                	comboBox_Other.setVisible(true);    
+	                	comboBox_Other.setVisible(true);
+	                	comboBox_WaterQualServices.setVisible(true);
 	                	break;
 	                }
 					case "WFS & WMS":
@@ -96,7 +98,8 @@ public class MainFrame {
 	                	comboBox_Imagery.setVisible(false);
 	                	comboBox_Raw.setVisible(false);
 	                	comboBox_Humanitarian.setVisible(false);
-	                	comboBox_Other.setVisible(false);    
+	                	comboBox_Other.setVisible(false); 
+	                	comboBox_WaterQualServices.setVisible(false);
 	                	break;
 					}
 					case "NITF Data":
@@ -106,7 +109,8 @@ public class MainFrame {
 	                	comboBox_Imagery.setVisible(false);
 	                	comboBox_Raw.setVisible(false);
 	                	comboBox_Humanitarian.setVisible(false);
-	                	comboBox_Other.setVisible(false);       
+	                	comboBox_Other.setVisible(false);  
+	                	comboBox_WaterQualServices.setVisible(false);
 	                	break;
 					}
 					
@@ -117,7 +121,8 @@ public class MainFrame {
 	                	comboBox_Imagery.setVisible(true);
 	                	comboBox_Raw.setVisible(false);
 	                	comboBox_Humanitarian.setVisible(false);
-	                	comboBox_Other.setVisible(false);     
+	                	comboBox_Other.setVisible(false);   
+	                	comboBox_WaterQualServices.setVisible(false);
 	                	break;
 					}
 					case "Humanitarian Data":
@@ -139,6 +144,7 @@ public class MainFrame {
 	                	comboBox_Raw.setVisible(true);
 	                	comboBox_Humanitarian.setVisible(false);
 	                	comboBox_Other.setVisible(false); 
+	                	comboBox_WaterQualServices.setVisible(false);
 	                	break;
 					}
 				}
@@ -149,11 +155,11 @@ public class MainFrame {
 		comboBox_Database.setBounds(197, 52, 151, 27);
 		frame.getContentPane().add(comboBox_Database);
 		
-		JLabel lblDatalink = new JLabel("Datalink:");
+		
 		lblDatalink.setBounds(98, 88, 74, 16);
 		frame.getContentPane().add(lblDatalink);
 		comboBox_WMS.setVisible(false);
-		comboBox_WMS.addActionListener(new ActionListener() 
+		comboBox_Other.addActionListener(new ActionListener() 
 		{
 			public void actionPerformed(ActionEvent e) 
 			{
@@ -162,14 +168,20 @@ public class MainFrame {
                 switch(selected)
                 {
 	                case "Water Quality Data":
-	                {
+	                {	
 	                	comboBox_WaterQualServices.setVisible(true);
-	                	lblWaterQualServices.setVisible(true);
+	                	lblWaterQualServices.setVisible(true);	                	
 	                	break;
 	                }
                 }
 				
 				
+			}
+		});
+		
+		comboBox_WaterQualServices.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				btnSelectFilters.setEnabled(true);
 			}
 		});
 		comboBox_WMS.setModel(new DefaultComboBoxModel(new String[] {"Nigeria Maps,Water Table", "Disaster Response- NEPAL", "Wildlife Trafficking", "Geonames- foreign", "Navy BlueMarble- low res (WMS)", "Navy BlueMarble- low res (WMTS)"}));
@@ -201,9 +213,11 @@ public class MainFrame {
 		
 		comboBox_Humanitarian.setBounds(197, 84, 151, 27);
 		frame.getContentPane().add(comboBox_Humanitarian);
-		lblWaterQualServices.setText("Web Service:");
-		lblWaterQualServices.setBounds(98, 116, 84, 16);
+		lblWaterQualServices.setVisible(false);
+		lblWaterQualServices.setText("Web Services:");
+		lblWaterQualServices.setBounds(98, 116, 100, 16);
 		frame.getContentPane().add(lblWaterQualServices);
+
 		comboBox_WaterQualServices.setVisible(false);
 		comboBox_WaterQualServices.setModel(new DefaultComboBoxModel(new String[] {"Instantaneous Values Web Service", "Site Service", "Daily Values Web Service", "Water Quality Web Services", "Groundwater Levels Web Service", "Statistics Web Service"}));
 		comboBox_WaterQualServices.setToolTipText("");
