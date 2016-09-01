@@ -132,7 +132,9 @@ public class MainFrame {
 	                	comboBox_Imagery.setVisible(false);
 	                	comboBox_Raw.setVisible(false);
 	                	comboBox_Humanitarian.setVisible(true);
-	                	comboBox_Other.setVisible(false);    
+	                	comboBox_Other.setVisible(false);
+	                	comboBox_WaterQualServices.setVisible(false);
+
 	                	break;
 					}
 					
