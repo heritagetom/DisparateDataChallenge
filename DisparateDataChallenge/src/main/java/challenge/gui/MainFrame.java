@@ -16,12 +16,13 @@ import javax.swing.JTable;
 import javax.swing.JButton;
 import javax.swing.JMenuBar;
 
-public class MainFrame {
-
+public class MainFrame {	
+	//declare and initialize MainFrame gui components
 	private JFrame frame;
 	
-	JLabel lblWaterQualServices = new JLabel("Web Services");
+	JLabel lblDatabase = new JLabel("Database:");
 	JLabel lblDatalink = new JLabel("Datalink:");
+	JLabel lblWaterQualServices = new JLabel("Web Services");
 	
 	JComboBox<String> comboBox_Database = new JComboBox<String>();
 	JComboBox<String> comboBox_WMS= new JComboBox<String>();
@@ -34,9 +35,9 @@ public class MainFrame {
 	private final JButton btnSelectFilters = new JButton("Select Filters");
 
 
-	/**
-	 * Launch the application.
-	 */
+
+	// Launch the application.
+
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -50,26 +51,24 @@ public class MainFrame {
 		});
 	}
 
-	/**
-	 * Create the application.
-	 */
-	public MainFrame() {
+
+	//Create the application.
+
+	public MainFrame() 
+	{
 		initialize();
 	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
+
+	//Initialize the contents of the frame.
+	 
 	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		JLabel lblDatabase = new JLabel("Database:");
-		lblDatabase.setBounds(98, 56, 74, 16);
-		frame.getContentPane().add(lblDatabase);
-		
+		//comboBox action listeners 
 		comboBox_Database.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent e) 
@@ -152,15 +151,7 @@ public class MainFrame {
 				}
 			}
 		});
-		comboBox_Database.setModel(new DefaultComboBoxModel(new String[] {"WMS & WFS", "NITF Data", "Imagery", "Humanitarian Data", "Other", "Raw Data"}));
-		comboBox_Database.setToolTipText("");
-		comboBox_Database.setBounds(197, 52, 151, 27);
-		frame.getContentPane().add(comboBox_Database);
 		
-		
-		lblDatalink.setBounds(98, 88, 74, 16);
-		frame.getContentPane().add(lblDatalink);
-		comboBox_WMS.setVisible(false);
 		comboBox_Other.addActionListener(new ActionListener() 
 		{
 			public void actionPerformed(ActionEvent e) 
@@ -176,16 +167,31 @@ public class MainFrame {
 	                	break;
 	                }
                 }
-				
-				
+						
 			}
-		});
+		});	
 		
-		comboBox_WaterQualServices.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		comboBox_WaterQualServices.addActionListener(new ActionListener() 
+		{
+			public void actionPerformed(ActionEvent e) 
+			{
 				btnSelectFilters.setEnabled(true);
 			}
 		});
+			
+		comboBox_Database.setModel(new DefaultComboBoxModel(new String[] {"WMS & WFS", "NITF Data", "Imagery", "Humanitarian Data", "Other", "Raw Data"}));
+		comboBox_Database.setToolTipText("");
+		comboBox_Database.setBounds(197, 52, 151, 27);
+		frame.getContentPane().add(comboBox_Database);
+		
+		lblDatabase.setBounds(98, 56, 74, 16);
+		frame.getContentPane().add(lblDatabase);
+		
+		lblDatalink.setBounds(98, 88, 74, 16);
+		frame.getContentPane().add(lblDatalink);
+		comboBox_WMS.setVisible(false);
+		
+		
 		comboBox_WMS.setModel(new DefaultComboBoxModel(new String[] {"Nigeria Maps,Water Table", "Disaster Response- NEPAL", "Wildlife Trafficking", "Geonames- foreign", "Navy BlueMarble- low res (WMS)", "Navy BlueMarble- low res (WMTS)"}));
 		
 		comboBox_WMS.setBounds(197, 84, 151, 27);
