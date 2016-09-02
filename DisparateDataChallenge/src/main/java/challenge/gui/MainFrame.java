@@ -16,6 +16,16 @@ import javax.swing.JTable;
 import javax.swing.JButton;
 import javax.swing.JMenuBar;
 
+/* 
+ * Tom Heritage
+ * Booz | Allen | Hamilton
+ * Aug. 31 2016
+ * This class creates the GUI for sending a REST request to fetch data from
+ * the NGA's repositories for the Disparate Data Challenge.
+ * See https://www.challenge.gov/challenge/disparate-data-challenge/
+ * for more information.
+ */
+
 public class MainFrame {	
 	//declare and initialize MainFrame gui components
 	private JFrame frame;
