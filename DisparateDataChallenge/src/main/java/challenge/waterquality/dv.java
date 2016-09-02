@@ -22,17 +22,17 @@ public class dv {
 	private String bbox = null;
 	
 	//Set Site Attribute - Major Filter
-	public void addSite(Integer[] siteNumber){
+	public void addSite(String[] siteNumber){
 		try{
 			String sitestring=null;
 			//If only one site
 			if(siteNumber.length==1){
-				sitestring = "&site="+siteNumber[0].toString();
+				sitestring = "&site="+siteNumber[0];
 			//Else, multiple sites
 			}else{
 				sitestring = "&sites=";
 				for(int i=0;i<siteNumber.length;i++){
-					sitestring+=Integer.toString(siteNumber[i])+',';
+					sitestring+=siteNumber[i]+',';
 				}
 				//Remove last remaining comma
 				sitestring = sitestring.substring(0, sitestring.length()-1);

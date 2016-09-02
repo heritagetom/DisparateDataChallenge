@@ -1,0 +1,372 @@
+Metadata:
+  Identification_Information:
+    Citation:
+      Citation_Information:
+        Originator: U.S. Geological Survey 
+        Publication_Date: 201301
+        Title: 100-Meter Resolution Impervious Surface of Hawaii
+        Geospatial_Data_Presentation_Form: Raster digital data
+        Publication_Information:
+          Publication_Place: Rolla, MO
+          Publisher: National Atlas of the United States
+        Online_Linkage: <http://nationalatlas.gov/atlasftp-1m.html>
+    Description:
+      Abstract:
+        This map layer contains impervious surface data for Hawaii, in an Albers Equal-Area Conic 
+        projection and at a resolution of 100 meters.  The impervious surface data were derived from the 
+        National Land Cover Database (NLCD) 2001 percent developed imperviousness data set, a product of 
+        the Multi-Resolution Land Characteristics Consortium (MRLC).  The MRLC is a multi-agency 
+        cooperative effort to study land cover change.  The NLCD 2001 is described at 
+        <http://www.mrlc.gov/nlcd2001.php>.  
+
+      Purpose:
+        The 100-meter resolution impervious surface data were developed to portray the impervious surface 
+        of the United States at 1:1,000,000 scale.  They are intended primarily for visual purposes.  The 
+        original NLCD data should be used for conducting scientific analysis.
+
+      Supplemental_Information:
+        NLCD data sets at 30-meter resolution may be downloaded from the MRLC Web site, 
+        <http://www.mrlc.gov/nlcd01_data.php>.  Further information on NLCD, related data sets, and land 
+        cover research may be found at the online USGS Land Cover Institute <http://landcover.usgs.gov/>.
+
+        Pixel values for impervious surface data and their corresponding RGB colors are listed in the color 
+        ramp (.clr) file that accompanies the data set.
+
+        This table shows all impervious surface classes and the RGB color values used to represent them. 
+ 
+        >Pixel value      NLCD 2001 Impervious Surface classes         R    G    B
+        >----------------------------------------------------------------------------------
+        >1 through 100    Percent impervious, 1% through 100%          See .clr for RGB’s
+        >101, 102, 103    Non-U.S. land                                240  235  211
+        >104              Background U.S. land                         104  104  104
+        >0                Ocean water                                  193  224  250
+
+        Pixel values 1 through 100 represent the percentage covered by impervious surface, such as 
+        pavement, as seen from above.
+        Pixel value 101 represents land in Canada or the British Virgin Islands.
+        Pixel value 102 represents land in Mexico or Russia.
+        Pixel value 103 represents land in The Bahamas and Cuba in the southeastern part of the data set.
+        Pixel value 104 represents U.S. land that does not have valid data values.
+        There are no null values in the image.
+
+        Included with the GeoTIFF are an auxiliary information file (.aux.xml), an image overview file 
+        (.ovr), a value attribute database file (.vat.dbf), a .tfw file (more information included below), 
+        a .prj file (more information included below), and an Adobe Color Table (.act) file.
+
+        The contents of the associated world file (.tfw) are:
+        >100.0
+        >0.0
+        >0.0
+        >-100.0
+        >-402950.0
+        >2164950.0
+
+        The projection (.prj) file contains the following information:
+        > PROJCS["Albers_NAD83_ Hawaii ",
+        >GEOGCS["GCS_North_American_1983",
+        >DATUM["D_North_American_1983",
+        >SPHEROID["GRS_1980",6378137.0,298.257222101]],
+        >PRIMEM["Greenwich",0.0],
+        >UNIT["Degree",0.0174532925199433]],
+        >PROJECTION["Albers"],
+        >PARAMETER["False_Easting",0.0],
+        >PARAMETER["False_Northing",0.0],
+        >PARAMETER["Central_Meridian",-157.0],
+        >PARAMETER["Standard_Parallel_1",8.0],
+        >PARAMETER["Standard_Parallel_2",18.0],
+        >PARAMETER["Latitude_Of_Origin",3.0],
+        >UNIT["Meter",1.0]]
+
+        Data set extent in meters (Albers Equal-Area Conic projection)
+        >North 2165000
+        >West -403000
+        >East 303000
+        >South 1723000
+
+        There are no NULL or NODATA values in the GeoTIFF.  Instead, all impervious surface values in 
+        oceans have been set to zero as part of the masking process.  A copy of the land/water mask used in 
+        processing is available on request.
+
+        Information about National Atlas Web services can be found on the Web Map and Web Feature Services 
+        page; see <http://nationalatlas.gov/infodocs/webservices.html>.
+
+    Time_Period_of_Content:
+      Time_Period_Information:
+        Single_Date/Time:
+          Calendar_Date: 2007
+      Currentness_Reference: Source data publication date
+    Status:
+      Progress: Complete
+      Maintenance_and_Update_Frequency: None planned
+    Spatial_Domain:	
+      Bounding_Coordinates:
+        West_Bounding_Coordinate: -163
+        East_Bounding_Coordinate: -152
+        North_Bounding_Coordinate: 26
+        South_Bounding_Coordinate: 15
+    Keywords:
+      Theme:
+        Theme_Keyword_Thesaurus: GCMD Science keywords
+        Theme_Keyword: Human Dimensions > Environmental Impacts > Urbanization
+        Theme_Keyword: Land Surface > Land Use/Land Cover > Land Cover
+        Theme_Keyword: Land Surface > Landscape > Landscape Patterns
+      Theme:
+        Theme_Keyword_Thesaurus: ISO 19115 Topic Category
+        Theme_Keyword: imageryBaseMapsEarthCover
+        Theme_Keyword: structure
+      Theme:
+        Theme_Keyword_Thesaurus: None
+        Theme_Keyword: Impervious surface
+      Place:
+        Place_Keyword_Thesaurus:
+          ISO 3166 Country Codes, Organization for International Standards,
+          <http://www.commondatahub.com/live/geography/country/iso_3166_country_codes>.
+        Place_Keyword: United States
+        Place_Keyword: US
+        Place_Keyword: USA
+      Place:
+        Place_Keyword_Thesaurus:
+          American National Standards Institute (ANSI) Codes for States, the District of Columbia, Puerto 
+          Rico, and the Insular Areas of the United States; 
+          <http://www.census.gov/geo/reference/ansi_statetables.html>
+        Place_Keyword: Hawaii
+
+    Access_Constraints: None.
+    Use_Constraints:
+      None.  Acknowledgment of The National Atlas of the United States of America would be appreciated in 
+      products derived from these data.
+    Point_of_Contact:
+      Contact_Information:
+        Contact_Organization_Primary:
+          Contact_Organization: U.S. Geological Survey
+          Contact_Person: John Hutchinson
+        Contact_Address:
+          Address_Type: Mailing address
+          Address: 47914 252nd Street
+          City: Sioux Falls		
+          State_or_Province: South Dakota
+          Country: USA
+          Postal_Code: 57198-0001
+        Contact_Voice_Telephone: 1 605 594 6049
+        Contact_Facsimile_Telephone: 1 605 594 6529
+        Contact_Electronic_Mail_Address: atlasmail@usgs.gov
+    Native_Data_Set_Environment: 1-band TIFF created using ArcGIS 10.0
+
+    Cross_Reference:
+      Citation_Information:
+        Originator: U.S. Geological Survey 
+        Publication_Date: 201301
+        Title: 100-Meter Resolution Impervious Surface of the Conterminous United States
+        Geospatial_Data_Presentation_Form: Raster digital data     
+        Publication_Information:
+          Publication_Place: Sioux Falls, SD
+          Publisher: U.S. Geological Survey, EROS Data Center
+        Online_Linkage: <http://nationalatlas.gov/atlasftp-1m.html>
+    Cross_Reference:
+      Citation_Information:
+        Originator: U.S. Geological Survey 
+        Publication_Date: 201301
+        Title: 100-Meter Resolution Impervious Surface of Alaska
+        Geospatial_Data_Presentation_Form: Raster digital data     
+        Publication_Information:
+          Publication_Place: Sioux Falls, SD
+          Publisher: U.S. Geological Survey, EROS Data Center
+        Online_Linkage: <http://nationalatlas.gov/atlasftp-1m.html>
+    Cross_Reference:
+      Citation_Information:
+        Originator: U.S. Geological Survey 
+        Publication_Date: 201301
+        Title: 100-Meter Resolution Impervious Surface of Puerto Rico and the U.S. Virgin Islands
+        Geospatial_Data_Presentation_Form: Raster digital data     
+        Publication_Information:
+          Publication_Place: Sioux Falls, SD
+          Publisher: U.S. Geological Survey, EROS Data Center
+        Online_Linkage: <http://nationalatlas.gov/atlasftp-1m.html>
+
+  Data_Quality_Information:
+    Logical_Consistency_Report: 
+      No tests for logical consistency have been performed on this map layer.
+    Completeness_Report:
+      Data completeness reflects the content of the original NLCD impervious surface data.
+
+    Lineage:
+      Source_Information: 
+        Source_Citation:
+          Citation_Information:
+            Originator: U.S. Geological Survey 
+            Publication_Date: 2007
+            Title: NLCD 2001 Percent Developed Imperviousness
+            Edition: 1.0
+            Geospatial_Data_Presentation_Form: Raster digital data     
+            Publication_Information:
+              Publication_Place: Sioux Falls, SD
+              Publisher: U.S. Geological Survey
+            Online_Linkage: <http://www.mrlc.gov/nlcd01_data.php>
+        Type_of_Source_Media: Online
+        Source_Time_Period_of_Content:
+          Time_Period_Information:
+            Single_Date/Time:
+              Calendar_Date: 2012
+          Source_Currentness_Reference: Date of data download
+        Source_Citation_Abbreviation: NLCD2001
+        Source_Contribution: Spatial and attribute information
+
+      Source_Information:
+        Source_Citation:
+          Citation_Information:
+            Originator: National Atlas of the United States
+            Publication_Date: 201207
+            Title: 1:1,000,000-Scale Coastlines of the United States
+            Geospatial_Data_Presentation_Form: Vector digital data
+            Online_Linkage: <http://nationalatlas.gov/atlasftp-1m.html>
+        Source_Scale_Denominator: 1000000
+        Type_of_Source_Media: Online
+        Source_Time_Period_of_Content:
+          Time_Period_Information:
+            Single_Date/Time:
+              Calendar_Date: 201207
+          Source_Currentness_Reference: Publication date
+        Source_Citation_Abbreviation: National Atlas Coastline 1:1M
+        Source_Contribution: Spatial information. 
+
+      Process_Step:
+        Process_Description:	
+          Four impervious surface mosaics at 30-meter resolution were downloaded from the MRLC Web site and 
+          used to produce impervious surface data files of the conterminous United States, Alaska, Hawaii, 
+          and Puerto Rico and the U.S. Virgin Islands.  NLCD stores data for the conterminous United 
+          States, Alaska, and Hawaii in the same Albers Equal-area conic projection used by the National 
+          Atlas.  Data for Puerto Rico and the U.S. Virgin Islands (PRVI) were reprojected to match the 
+          Albers projection parameters used by the National Atlas for that area.  All data were resampled 
+          to 100-meter resolution and extents set to match National Atlas neatlines for the four areas.  
+          This map layer includes the data file for Hawaii.
+
+          Using the ArcGIS Feature-to-Raster command, a 0/1 land/water mask for Hawaii was created from 
+          the 1:1,000,000-scale National Atlas coastline, at the same 100-meter resolution and with the 
+          same extent as the impervious surface data.  The land/water mask was applied to the impervious 
+          surface grid with a software routine that used the ArcGIS Multiply command to clip impervious 
+          surface values that fell in ocean areas.  Impervious surface values were not filled out to the 
+          coastline.
+
+          Ocean areas were set to a pixel value of 0.  The land/water mask is available on request.
+
+          In the conterminous United States impervious surface data set, non-data pixels were set to 
+          separate values: 101 for Canada, 102 for Mexico, and 103 for The Bahamas and Cuba.  In 
+          Alaska: 101 for Canada and 102 for Russia.  In PRVI: 101 for the British Virgin Islands.
+        Source_Used_Citation_Abbreviation: NLCD2001
+        Source_Used_Citation_Abbreviation: National Atlas Coastline 1:1M
+        Process_Date: 2012
+
+  Spatial_Data_Organization_Information:
+    Direct_Spatial_Reference_Method: Raster
+    Raster_Object_Information:
+      Raster_Object_Type: Grid Cell
+      Row_Count: 4420
+      Column_Count: 7060
+  Spatial_Reference_Information:
+    Horizontal_Coordinate_System_Definition:
+      Planar:
+        Map_Projection:
+          Map_Projection_Name: Albers Conical Equal Area
+          Albers_Conical_Equal_Area:
+            Standard_Parallel: 8.0
+            Standard_Parallel: 18.0
+            Longitude_Of_Central_Meridian: -157.0
+            Latitude_Of_Projection_Origin: 3.0
+            False_Easting: 0.0
+            False_Northing: 0.0
+        Planar_Coordinate_Information:
+          Planar_Coordinate_Encoding_Method: Row and column
+          Coordinate_Representation:
+            Abscissa_Resolution: 100.0
+            Ordinate_Resolution: 100.0
+          Planar_Distance_Units: Meters
+      Geodetic_Model:
+        Horizontal_Datum_Name: NAD 1983
+        Ellipsoid_Name: GRS80
+        Semi-major_Axis: 6378137.0
+        Denominator_of_Flattening_Ratio: 298.257222101
+
+  Entity_and_Attribute_Information:
+    Detailed_Description:
+      Entity_Type:
+        Entity_Type_Label: Impervious surface TIFF image grid cell
+        Entity_Type_Definition: Any of the data elements in the impervious surface file.
+        Entity_Type_Definition_Source: National Atlas of the United States
+      Attribute:
+        Attribute_Label: Impervious surface TIFF image values
+        Attribute_Definition: Percent impervious surface values in the TIFF image.
+        Attribute_Definition_Source: National Atlas of the United States
+        Attribute_Domain_Values:
+          Range_Domain:
+            Range_Domain_Minimum: 0
+            Range_Domain_Maximum: 104
+
+  Distribution_Information:
+    Distributor:
+      Contact_Information:
+        Contact_Organization_Primary:
+          Contact_Organization: Earth Explorer, U.S. Geological Survey
+        Contact_Address:
+          Address_Type: Mailing address
+          Address: U.S. Geological Survey
+          Address: 47914 252nd Street
+          City: Sioux Falls
+          State_or_Province: SD
+          Postal_Code: 57198-0001
+        Contact_Voice_Telephone: 605-594-6116
+        Contact_Voice_Telephone: 866-573-3222
+        Contact_Electronic_Mail_Address: custserv@usgs.gov
+
+    Distribution_Liability:
+      Although these data have been processed successfully on a computer system at the U.S. Geological 
+      Survey, no warranty expressed or implied is made by the U.S. Geological Survey regarding the utility 
+      of the data on any other system, nor shall the act of distribution constitute any such warranty.  
+      No responsibility is assumed by the U.S. Geological Survey in the use of these data.
+    Standard_Order_Process:
+      Digital_Form:
+        Digital_Transfer_Information:
+          Format_Name: TIFF
+        Digital_Transfer_Option:
+          Online_Option:
+            Computer_Contact_Information:
+              Network_Address:
+                Network_Resource_Name: <http://nationalatlas.gov/atlasftp-1m.html>
+      Digital_Form:
+        Digital_Transfer_Information:
+          Format_Name: Web Map Service (WMS)
+        Digital_Transfer_Option:
+          Online_Option:
+            Computer_Contact_Information:
+              Network_Address:
+                Network_Resource_Name: 
+                  <http://webservices.nationalatlas.gov/wms/biology?SERVICE=WMS&REQUEST=GetCapabilities> 
+                Network_Resource_Name: 
+                  <http://webservices.nationalatlas.gov/wms/1million?SERVICE=WMS&REQUEST=GetCapabilities>
+                Network_Resource_Name:                   
+                  <http://webservices.nationalatlas.gov/wms?SERVICE=WMS&REQUEST=GetCapabilities>
+
+      Fees: None
+
+  Metadata_Reference_Information:
+    Metadata_Date: 20130419
+    Metadata_Contact:
+      Contact_Information:
+        Contact_Organization_Primary:
+          Contact_Organization: National Atlas of the United States
+        Contact_Address:
+          Address_Type: Mailing address
+          Address: U.S. Geological Survey
+          Address: 511 National Center
+          Address: 12201 Sunrise Valley Drive 
+          City: Reston
+          State_or_Province: VA
+          Postal_Code: 20192
+        Contact_Voice_Telephone: 1-888-ASK-USGS (1-888-275-8747)
+        Contact_Electronic_Mail_Address: atlasmail@usgs.gov
+    Metadata_Standard_Name: FGDC Content Standard for Digital Geospatial Metadata
+    Metadata_Standard_Version: FGDC-STD-001-1998
+    Metadata_Security_Information:
+      Metadata_Security_Classification_System: None
+      Metadata_Security_Classification: Unclassified
+      Metadata_Security_Handling_Description: None
+
