@@ -1,4 +1,4 @@
-package unittest;
+package harvester.test;
 
 import java.io.File;
 import java.io.IOException;
@@ -13,15 +13,16 @@ public class test1 {
 	public static void main(String[] args) throws IOException, InterruptedException{
 		//Test Database functionality
 		dv testDatabase = new dv();
-		testDatabase.addState("PA");
-		testDatabase.addSite(null);
-		testDatabase.addCounty(16350);
+		testDatabase.addFormat("xml");
+		String[] sites = {"01372040","01372300","03011020","03014500"};
+		testDatabase.addSite(sites);
+		String mainstring = testDatabase.getPath();
 		System.out.println(testDatabase.getPath());
 		
-		//String parentdir = "/Users/jacobtutmaher/Desktop/";
-		//File file = new File(parentdir+"test.txt");
-		//URL url = new URL(mainstring);
-		//FileUtils.copyURLToFile(url,file);
+		String parentdir = "/Users/jacobtutmaher/Desktop/";
+		File file = new File(parentdir+"test9.xml");
+		URL url = new URL(mainstring);
+		FileUtils.copyURLToFile(url,file);
 		
 	}
 
