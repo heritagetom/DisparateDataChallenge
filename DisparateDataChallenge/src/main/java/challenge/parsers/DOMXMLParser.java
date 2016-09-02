@@ -21,15 +21,21 @@ import java.io.File;
 
 public class DOMXMLParser
 {
-	public static void main(String[] args)
+	File file;
+	
+	public DOMXMLParser(File file)
 	{
-		
+		this.file = file;
+	}
+	
+	public void printValues()
+	{	
 		try 
 		{
-			File fXmlFile = new File("/Users/thomasheritage/git/DisparateDataChallenge/DisparateDataChallenge/TestFiles/WaterQuality/dv/test.xml");
+			//File fXmlFile = new File("/Users/thomasheritage/git/DisparateDataChallenge/DisparateDataChallenge/TestFiles/WaterQuality/dv/test.xml");
 			DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 			DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-			Document doc = dBuilder.parse(fXmlFile);
+			Document doc = dBuilder.parse(file);
 			doc.getDocumentElement().normalize();
 			System.out.println("Root element :" + doc.getDocumentElement().getNodeName());
 			System.out.println(doc.getDocumentElement().getChildNodes().getLength());
@@ -45,13 +51,14 @@ public class DOMXMLParser
 	// it first looks for all attributes of a node and secondly, the elements.
 	//if a node's element has children of its own it'll find children for that 
 	//element before preceding to the following node
-	private static void findChidrenValues(Node currentNode)
-	{		System.out.println("\ncurrently inside of " + currentNode.getNodeName());
+	private void findChidrenValues(Node currentNode)
+	{	
+		System.out.println("\ncurrently inside of " + currentNode.getNodeName());
 		// create named node map of attributes and store them for current node
 		NamedNodeMap attributesMap = currentNode.getAttributes();
 		for(int i=0;i<attributesMap.getLength();i++)
 		{
-			System.out.println(attributesMap.item(i).getNodeName()+ ": "+attributesMap.item(i).getNodeValue());
+		System.out.println(attributesMap.item(i).getNodeName()+ ": "+attributesMap.item(i).getNodeValue());
 		}
 		//creates node list of child nodes and store them if they have values
 		//if the child's value is null, it has children itself, so it'll recursively
@@ -66,12 +73,15 @@ public class DOMXMLParser
 				System.out.println(currentNode.getNodeName() +": "+childNode.getNodeValue());
 				System.out.println(childNode.hasChildNodes());
 			}
-				
 			else
 				findChidrenValues(childNode);
 			
 		}
 	}
+
+	
+
+	
 					
 }
 
