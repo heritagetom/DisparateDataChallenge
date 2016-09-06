@@ -14,13 +14,14 @@ public class test1 {
 		//Test Database functionality
 		DVHarvester testDatabase = new DVHarvester();
 		testDatabase.addFormat("xml");
-		String[] sites = {"01372040","01372300","03011020","03014500"};
-		testDatabase.addSite(sites);
+		//String[] sites = {"01372040","01372300","03011020","03014500"};
+		//testDatabase.addSite(sites);
+		testDatabase.addState("NY");
 		String mainstring = testDatabase.getPath();
 		System.out.println(testDatabase.getPath());
 		
 		String parentdir = "/Users/jacobtutmaher/Desktop/";
-		File file = new File(parentdir+"test9.xml");
+		File file = new File(parentdir+"state.xml");
 		URL url = new URL(mainstring);
 		FileUtils.copyURLToFile(url,file);
 		
