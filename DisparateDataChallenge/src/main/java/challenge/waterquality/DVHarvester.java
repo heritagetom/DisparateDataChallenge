@@ -12,7 +12,7 @@ import java.text.DecimalFormat;
  * See https://www.challenge.gov/challenge/disparate-data-challenge/
  * for more information.
  */
-public class dv {
+public class DVHarvester {
 	private String mainbase = "http://waterservices.usgs.gov/nwis/dv/";
 	private String format = "?format=rdb";
 	private String state = null;

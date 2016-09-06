@@ -1,6 +1,10 @@
 package challenge.parsers;
 
 import javax.xml.parsers.DocumentBuilderFactory;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import javax.xml.parsers.DocumentBuilder;
 import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
@@ -22,14 +26,14 @@ import java.io.File;
 public class DOMXMLParser
 {
 	File file;
+	Element rootElement;
+	String searchValue;
+	HashMap<String, HashMap<String, String>> siteIdMap = new HashMap<String, HashMap<String, String>>();
+	HashMap<String, String> dateMap = new HashMap<String, String>(); 
 	
 	public DOMXMLParser(File file)
 	{
 		this.file = file;
-	}
-	
-	public void printValues()
-	{	
 		try 
 		{
 			//File fXmlFile = new File("/Users/thomasheritage/git/DisparateDataChallenge/DisparateDataChallenge/TestFiles/WaterQuality/dv/test.xml");
@@ -39,19 +43,40 @@ public class DOMXMLParser
 			doc.getDocumentElement().normalize();
 			System.out.println("Root element :" + doc.getDocumentElement().getNodeName());
 			System.out.println(doc.getDocumentElement().getChildNodes().getLength());
-			Node rootElement = (Element)doc.getDocumentElement();//create root node
+			rootElement = (Element)doc.getDocumentElement();//create root node
 			System.out.println("----------------------------");		
-			findChidrenValues(rootElement);	//find children of root node
 		} 
 	 	catch (Exception e) 
 		{	    e.printStackTrace();
-		}	
+		}
 	}
+	
+	
+	public HashMap<String, HashMap<String, String>> createMap()
+	{
+		NodeList nList = rootElement.getElementsByTagName("ns1:timeSeries");
+		for(int i=0;i<nList.getLength();i++)
+		{
+			Node currentNode = nList.item(i);
+			NamedNodeMap attributesMap = currentNode.getAttributes();
+			String myString = attributesMap.getNamedItem("name").toString();
+			String[] myList = myString.split(":");
+			String siteId = myList[1];//site code
+			
+			Element currentElement = (Element)currentNode;
+			String value = currentElement.getElementsByTagName("ns1:value").item(0).getTextContent().substring(0,3);//value
+			NamedNodeMap map = currentElement.getElementsByTagName("ns1:value").item(0).getAttributes();
+			String date = map.item(0).getNodeValue().toString();//date
+		}
+		return siteIdMap;
+	}
+	
+	
 	//findChildrenValues is a recursive function that finds children of a node.
 	// it first looks for all attributes of a node and secondly, the elements.
 	//if a node's element has children of its own it'll find children for that 
 	//element before preceding to the following node
-	private void findChidrenValues(Node currentNode)
+	/*private void findChildrenValues(Node currentNode)
 	{	
 		System.out.println("\ncurrently inside of " + currentNode.getNodeName());
 		// create named node map of attributes and store them for current node
@@ -64,8 +89,8 @@ public class DOMXMLParser
 		//if the child's value is null, it has children itself, so it'll recursively
 		//call the findChildrenValues method until all values are retrieved
 		NodeList childrenList = currentNode.getChildNodes();
-		//System.out.println(a.getChildNodes().getLength()); // number of elements
-        for (int j = 0; j < childrenList.getLength(); j++) 
+		
+		for (int j = 0; j < childrenList.getLength(); j++) 
 		{
 			Node childNode = childrenList.item(j);
 			if(childNode.getNodeValue()!=null)
@@ -74,15 +99,48 @@ public class DOMXMLParser
 				System.out.println(childNode.hasChildNodes());
 			}
 			else
-				findChidrenValues(childNode);
+				findChildrenValues(childNode);
 			
 		}
+	}*/
+	
+	
+	/*public String searchFor(String searchValue)
+	{
+		this.searchValue = searchValue;
+		return returnValueFrom(rootElement);
 	}
-
 	
-
 	
-					
+	private String returnValueFrom (Node currentNode)
+	{
+		NamedNodeMap attributesMap = currentNode.getAttributes();
+		for(int i=0;i<attributesMap.getLength();i++)
+		{	
+		String attrName = attributesMap.item(i).getNodeName();
+		//System.out.println("current attr is "+ attrName+": " + attributesMap.item(i).getNodeValue());
+		if(attrName == this.searchValue)
+			return (String)attributesMap.item(i).getNodeValue();
+		}
+
+		NodeList childrenList = currentNode.getChildNodes();
+        for (int j = 0; j < childrenList.getLength(); j++) 
+		{
+			Node childNode = childrenList.item(j);
+			//System.out.println("current node is "+ currentNode.getNodeName());
+			//System.out.println("current node value is  "+ currentNode.getNodeValue());
+			//System.out.println("child value is "+ childNode.getNodeValue());			
+			if(childNode.getNodeValue()!=null)
+			{
+				if(currentNode.getNodeName() == searchValue)
+					return (String)childNode.getNodeValue();
+			}
+			else
+				returnValueFrom(childNode);
+		}
+		//System.out.println("No value found for your request of " + searchValue );
+		return "";			
+	}*/
 }
 
 
