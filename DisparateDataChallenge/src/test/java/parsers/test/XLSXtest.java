@@ -2,7 +2,6 @@ package parsers.test;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -12,7 +11,6 @@ import java.util.Map;
 import java.util.Set;
 
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-import org.apache.poi.ss.formula.functions.Rows;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.DataFormatter;
 import org.apache.poi.ss.usermodel.Row;
@@ -48,7 +46,8 @@ public class XLSXtest {
 			wb = new HSSFWorkbook(teststream);
 			
 		}else{
-			System.out.println("Failed to Load");
+			teststream.close();
+			throw new IllegalArgumentException("Could Not Load Test File");
 		}
 		
 		//Run Unit Tests
@@ -56,12 +55,16 @@ public class XLSXtest {
 		String sheetNameTest = compareAllTabs(testmap,wb);
 		String headerNamesTest = compareAllHeaders(testmap,wb);
 		String rowNumTest = checkRowNumbers(testmap,wb);
+		String consistencyTest = compareMapConsistency(testmap);
 		
 		//Print Unit Test Results
 		System.out.println("Number of Sheets: "+sheetNumTest);
 		System.out.println("Names of Sheets: "+sheetNameTest);
 		System.out.println("Header Names: "+headerNamesTest);
 		System.out.println("Number of Rows: "+rowNumTest);
+		System.out.println("Consistent Number of Values in Map: "+consistencyTest);
+		//System.out.println("Sample Row (Country) for "+wb.getSheetName(0)+": "+testmap.get(wb.getSheetName(0)).get("Country")); 
+		//System.out.println("Sample Row (Case def.) for "+wb.getSheetName(4)+": "+testmap.get(wb.getSheetName(4)).get("Case def."));
 		
 		teststream.close();
 	}
@@ -136,11 +139,13 @@ public class XLSXtest {
 				headerString = "Pass";
 			}else if (keySetList.containsAll(headerList) && keySetList.size()!=headerList.size()){
 				headerString = "Tab Names Equal, But Number Differs";
+				System.out.println(headerList.size());
+				System.out.println(keySetList.size());
+				System.out.println(currSheet.getSheetName());
 				break;
 			}else{
 				headerString = "Fail";
 				System.out.println("Sheet: "+sheetName);
-				System.out.println("Number of Headers in For Loop: "+numSheets);
 				System.out.println("Headers from POI: "+headerList);
 				System.out.println("Headers from HMAP: "+keySetList);
 				break;
@@ -155,11 +160,6 @@ public class XLSXtest {
 		for(int i=0;i<numSheets;i++){
 			//Get Sheet
 			Sheet currSheet = workbook.getSheetAt(i);
-			
-			//Get First Row and Headers
-			Iterator<Row> rows = currSheet.iterator();
-			Row headers = rows.next();
-			List<String> headerList = getKeys(headers);
 			
 			//Get Number of Rows in Sheet
 			Integer actualArraySize = currSheet.getPhysicalNumberOfRows();
@@ -200,14 +200,40 @@ public class XLSXtest {
 		while(headerCell.hasNext()){
 			Cell currCell = headerCell.next();
 			String cellValueString = df.formatCellValue(currCell);
-			//Bug - Picked out empty cell
-			if(cellValueString==""){
-				continue;
-			}else{
-				headers.add(cellValueString);
-			}
+			headers.add(cellValueString);
 		}
 		
 		return headers;
+	}
+	
+	private static String compareMapConsistency(Map<String,HashMap<String,ArrayList<String>>> hmapTest){
+		//Initialize Variable
+		Integer errorNum = 0;
+		String consistencyString = null;
+		Set<String> keySet1 = hmapTest.keySet();
+		
+		//Iterate Through First Key (Sheets)
+		for(String key1:keySet1){
+			HashMap<String,ArrayList<String>> innerMap = hmapTest.get(key1);
+			Set<String> keySet2 = innerMap.keySet();
+			
+			//Iterate Through Second Key Set (Column Headers)
+			Object[] keyArray = keySet2.toArray();
+			Integer first = innerMap.get(keyArray[0]).size();
+			for(String key2:keySet2){
+				Integer valueSize = innerMap.get(key2).size();
+				if(valueSize.equals(first)){
+					continue;
+				}else{
+					errorNum+=1;
+				}
+			}
+		}
+		if(errorNum>0){
+			consistencyString="Fail";
+		}else{
+			consistencyString="Pass";
+		}
+		return consistencyString;
 	}
 }

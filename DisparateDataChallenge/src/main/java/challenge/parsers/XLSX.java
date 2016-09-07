@@ -98,17 +98,11 @@ public class XLSX {
 			Row valueRow){
 		//Set Up Formatter and Output List
 		DataFormatter df = new DataFormatter();
-		short totalCells = valueRow.getLastCellNum();
 		
-		//If Num Cells Does Not Equal Num Headers - Add Value at End
-		if(totalCells<keyValues.size()){
-			valueRow.createCell(totalCells);
-		}
-		totalCells = valueRow.getLastCellNum();
-		
-		//Iterate Through Cells
+		//Iterate Through Cells - Note, Cell Number Is Same as Key Number
 		Integer counter=0;
-		for(int cn=0;cn<totalCells;cn++){
+		for(int cn=0;cn<keyValues.size();cn++){
+			//Read Each Cell - record empty cells as blank
 			String currKey = keyValues.get(counter);
 			Cell currCell = valueRow.getCell(cn,Row.CREATE_NULL_AS_BLANK);
 			String cellValueString = df.formatCellValue(currCell);
