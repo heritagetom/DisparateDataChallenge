@@ -8,7 +8,7 @@ import challenge.waterquality.DVObject;
 public class DVMap {
 	//Private Variables for Class - currKey should change to most recent value
 	private String currKey = null;
-	private Map<String,DVObject> hmap = new HashMap<String,DVObject>();
+	public Map<String,DVObject> hmap = new HashMap<String,DVObject>();
 	
 	//Initialize New DV Map
 	public void addEntry(String newTime){
