@@ -50,6 +50,8 @@ public class XLSX {
 			wb = new XSSFWorkbook(mystream);
 		}else if(currpath.endsWith("xls")){
 			wb = new HSSFWorkbook(mystream);
+		}else if(currpath.endsWith("xlsm")){
+			wb = new XSSFWorkbook(mystream);
 		}else{
 			mystream.close();
 			throw new IllegalArgumentException("This is not an Excel Workbook");
