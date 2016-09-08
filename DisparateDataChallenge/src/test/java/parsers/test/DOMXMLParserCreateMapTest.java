@@ -19,12 +19,12 @@ public class DOMXMLParserCreateMapTest {
 	public static void main(String[] args)
 	{			
 		//create a parser object and send it the xml file
-		File fXmlFile = new File("/Users/thomasheritage/git/DisparateDataChallenge/DisparateDataChallenge/TestFiles/Other/WaterQuality/dv/test9.xml");
+		File fXmlFile = new File("/Users/thomasheritage/git/DisparateDataChallenge/DisparateDataChallenge/TestFiles/Other/WaterQuality/dv/smallstate.xml");
 		DOMXMLParser myParser = new DOMXMLParser(fXmlFile);
 		//call createMap to store xml data in a hash map structure
 		HashMap<String,DVMap> myMap = myParser.createMap();
 		
-		assertEquals("Number of site locations should be 4",4,myMap.size());
+		//assertEquals("Number of site locations should be 4",4,myMap.size());
 		
 		//for each site code, list its water quality recording entries		
 		for (String key : myMap.keySet()) 
@@ -38,7 +38,7 @@ public class DOMXMLParserCreateMapTest {
 		    	Double value = myMap.get(key).hmap.get(time).getDV();
 		    	assertNotNull("time shouldn't be null", time);
 		    	assertNotNull("value shouldn't be null",value);   	
-		    	
+		    	System.out.print(myMap.get(key).hmap.get(time).getSiteName());
 		    	System.out.print(time + " ");
 		    	System.out.print("value= "+value+" ");
 		    	System.out.println();

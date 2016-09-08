@@ -74,6 +74,9 @@ public class DOMXMLParser
 			NamedNodeMap nMap = currentElement.getElementsByTagName("ns1:value").item(0).getAttributes();
 			String date = nMap.item(0).getNodeValue().toString().split("T")[0];
 			
+			//siteName 
+			//String siteName = currentElement.getElementsByTagName("ns1:siteName").item(0).getTextContent();
+
 			//methodID
 			String methodID = currentElement.getElementsByTagName("ns1:method").item(0).getAttributes().item(0).getNodeValue();
 			date = date + ":"+methodID;
