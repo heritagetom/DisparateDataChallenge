@@ -8,13 +8,18 @@ import collection.JavaConversions._
 
 object RDDConvert {
   def main(args: Array[String]){
-    val conf = new SparkConf()
-        .setAppName("SparkProject")
-        .setMaster("local")
-    val sc = new SparkContext(conf)
+    //Path
     val csvParser = new CSV("TestFiles/HumanitarianData/DataForWorldFoodProgram/CSV/example.csv")
-    val mymap = asScalaMap(csvParser.getMap())
-    println(mymap.get("adm0_name"))
+    val myMap = asScalaMap(csvParser.getMap())   
+    
+    //Set Up Spark
+    val conf = new SparkConf().setAppName("SparkProject").setMaster("local")
+    val sc = new SparkContext(conf)
+    
+    //Set Up RDD
+    val csv_rdd = sc.parallelize(myMap.toSeq)
+    println(csv_rdd.getClass())
+    
 
      
   }
