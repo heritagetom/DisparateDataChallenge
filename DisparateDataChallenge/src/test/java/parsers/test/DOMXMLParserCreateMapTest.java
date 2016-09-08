@@ -38,7 +38,7 @@ public class DOMXMLParserCreateMapTest {
 		    	Double value = myMap.get(key).hmap.get(time).getDV();
 		    	assertNotNull("time shouldn't be null", time);
 		    	assertNotNull("value shouldn't be null",value);   	
-		    	System.out.print(myMap.get(key).hmap.get(time).getSiteName());
+		    	//System.out.print(myMap.get(key).hmap.get(time).getSiteName());
 		    	System.out.print(time + " ");
 		    	System.out.print("value= "+value+" ");
 		    	System.out.println();
