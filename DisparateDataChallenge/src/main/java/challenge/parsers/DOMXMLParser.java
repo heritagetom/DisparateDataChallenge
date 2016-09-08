@@ -62,32 +62,32 @@ public class DOMXMLParser
 		for(int i=0;i<nList.getLength();i++)
 		{
 			Node currentNode = nList.item(i);
-			//site code
+			//store site code
 			NamedNodeMap attributesMap = currentNode.getAttributes();
 			String myString = attributesMap.getNamedItem("name").toString();
 			String[] myList = myString.split(":");
 			String siteCode = myList[1];
-			//dailyValue
+			//store dailyValue
 			Element currentElement = (Element)currentNode;
 			String value = currentElement.getElementsByTagName("ns1:value").item(0).getTextContent();
-			//date
+			//store date
 			NamedNodeMap nMap = currentElement.getElementsByTagName("ns1:value").item(0).getAttributes();
 			String date = nMap.item(0).getNodeValue().toString().split("T")[0];
 			
 			//siteName 
 			//String siteName = currentElement.getElementsByTagName("ns1:siteName").item(0).getTextContent();
 
-			//methodID
+			//store methodID
 			String methodID = currentElement.getElementsByTagName("ns1:method").item(0).getAttributes().item(0).getNodeValue();
 			date = date + ":"+methodID;
 			
-			//if the site exists already, add a new date to its corresponding date map
+			//if the site exists already in our table, add a new date to its corresponding date map
 			if(siteMap.containsKey(siteCode))
 			{
 				siteMap.get(siteCode).addEntry(date);
 				siteMap.get(siteCode).addDV(value);
 			}
-			// if the site doesn't exist, create a new date map for that site
+			// if the site doesn't exist in our map, create a new DVmap for that site code
 			else
 			{
 				DVMap dMap = new DVMap();
