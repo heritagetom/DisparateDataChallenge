@@ -23,50 +23,61 @@ import challenge.parsers.XLSX;
 public class XLSXtest {
 	
 	public static void main(String[] args) throws IOException{
-		//Path
-		String testpath = "TestFiles/HumanitarianData/WestAfricanEbolaOutbreak/XLS/example.xls";
+		//List all files in resource directory
+		String dirpath = "src/test/resources/EXCEL/";
+		File folder = new File(dirpath);
+		File[] files = folder.listFiles();
 		
-		//Test Data Structure
-		XLSX testobj = new XLSX(testpath);
-		Map<String,HashMap<String,ArrayList<String>>> testmap = testobj.getMap();
-		
-		//Load File Using POI from Apache
-		File testfile = new File(testpath);
-		FileInputStream teststream = new FileInputStream(testfile);
-		
-		//Initialize Test Variables
-		Workbook wb = null;
-		
-		if(testpath.endsWith("xlsx")){
-			//Define Workbook
-			wb = new XSSFWorkbook(teststream);
+		for(File file:files){
+			//Path
+			String testpath = file.getPath();
+			System.out.println(testpath);
 			
-		}else if(testpath.endsWith("xls")){
-			//Define Workbook
-			wb = new HSSFWorkbook(teststream);
+			//Load File Using POI from Apache
+			File testfile = new File(testpath);
+			FileInputStream teststream = new FileInputStream(testfile);
 			
-		}else{
+			//Initialize Test Variables
+			Workbook wb = null;
+			
+			if(testpath.endsWith("xlsx")){
+				//Define XLSX Workbook
+				wb = new XSSFWorkbook(teststream);
+				
+			}else if(testpath.endsWith("xls")){
+				//Define XLS Workbook
+				wb = new HSSFWorkbook(teststream);	
+				
+			}else if(testpath.endsWith("xlsm")){
+				//Define XLSM Workbook
+				wb = new XSSFWorkbook(teststream);
+				
+			}else{
+				teststream.close();
+				continue;
+			}
+			
+			//Test Data Structure
+			XLSX testobj = new XLSX(testpath);
+			Map<String,HashMap<String,ArrayList<String>>> testmap = testobj.getMap();
+			
+			//Run Unit Tests
+			String sheetNumTest = compareNumTabs(testmap,wb);
+			String sheetNameTest = compareAllTabs(testmap,wb);
+			String headerNamesTest = compareAllHeaders(testmap,wb);
+			String rowNumTest = checkRowNumbers(testmap,wb);
+			String consistencyTest = compareMapConsistency(testmap);
+			
+			//Print Unit Test Results
+			System.out.println("Number of Sheets: "+sheetNumTest);
+			System.out.println("Names of Sheets: "+sheetNameTest);
+			System.out.println("Header Names: "+headerNamesTest);
+			System.out.println("Number of Rows: "+rowNumTest);
+			System.out.println("Consistent Number of Values in Map: "+consistencyTest);
+			System.out.println("");
+			
 			teststream.close();
-			throw new IllegalArgumentException("Could Not Load Test File");
 		}
-		
-		//Run Unit Tests
-		String sheetNumTest = compareNumTabs(testmap,wb);
-		String sheetNameTest = compareAllTabs(testmap,wb);
-		String headerNamesTest = compareAllHeaders(testmap,wb);
-		String rowNumTest = checkRowNumbers(testmap,wb);
-		String consistencyTest = compareMapConsistency(testmap);
-		
-		//Print Unit Test Results
-		System.out.println("Number of Sheets: "+sheetNumTest);
-		System.out.println("Names of Sheets: "+sheetNameTest);
-		System.out.println("Header Names: "+headerNamesTest);
-		System.out.println("Number of Rows: "+rowNumTest);
-		System.out.println("Consistent Number of Values in Map: "+consistencyTest);
-		//System.out.println("Sample Row (Country) for "+wb.getSheetName(0)+": "+testmap.get(wb.getSheetName(0)).get("Country")); 
-		//System.out.println("Sample Row (Case def.) for "+wb.getSheetName(4)+": "+testmap.get(wb.getSheetName(4)).get("Case def."));
-		
-		teststream.close();
 	}
 	
 	public static String compareNumTabs(Map<String,HashMap<String,ArrayList<String>>> hmapTest,Workbook workbook) throws IOException{
