@@ -19,7 +19,7 @@ public class DOMXMLParserCreateMapTest {
 	public static void main(String[] args)
 	{			
 		//create a parser object and send it the xml file
-		File fXmlFile = new File("/Users/thomasheritage/git/DisparateDataChallenge/DisparateDataChallenge/TestFiles/Other/WaterQuality/dv/smallstate.xml");
+		File fXmlFile = new File("TestFiles/Other/WaterQuality/dv/smallstate.xml");
 		DOMXMLParser myParser = new DOMXMLParser(fXmlFile);
 		//call createMap to store xml data in a hash map structure
 		HashMap<String,DVMap> myMap = myParser.createMap();

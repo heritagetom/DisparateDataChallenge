@@ -1,7 +1,8 @@
 package challenge.basic
-import challenge.parsers._
+import challenge.parsers.CSV
 import org.apache.spark.SparkConf
 import org.apache.spark.SparkContext
+import scala.collection.mutable.Map
 import collection.JavaConversions._
 
 
