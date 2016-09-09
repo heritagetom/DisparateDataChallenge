@@ -72,7 +72,13 @@
 			<version>1.6.0</version>
 		</dependency>
 		
-		
+		<!-- org.json dependency for xml converter -->
+		<dependency>
+		    <groupId>org.json</groupId>
+		    <artifactId>json</artifactId>
+		    <version>20090211</version>
+		</dependency>
+				
 	</dependencies>
 	
 	<repositories>
