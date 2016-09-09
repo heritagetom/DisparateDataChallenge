@@ -65,6 +65,7 @@ public class XLSX {
 		//Iterate Through Sheets
 		for(int i=0;i<numSheets;i++){
 			Sheet currSheet = wb.getSheetAt(i);
+			System.out.println("-- "+currSheet.getSheetName());
 			HashMap<String,ArrayList<String>> insidemap = parseSheet(currSheet);
 			outermap.put(currSheet.getSheetName(), insidemap);
 		}
@@ -91,6 +92,7 @@ public class XLSX {
 		while(iterator.hasNext()){
 			Row nextRow = iterator.next();
 			innerMap = getValues(keys,innerMap, nextRow);
+			System.out.println("");
 		}
 		
 		return innerMap;
@@ -108,6 +110,7 @@ public class XLSX {
 			String currKey = keyValues.get(counter);
 			Cell currCell = valueRow.getCell(cn,Row.CREATE_NULL_AS_BLANK);
 			String cellValueString = df.formatCellValue(currCell);
+			System.out.print(cellValueString+", ");
 			
 			//If HashMap has been initialized
 			if(hmap.containsKey(currKey)){
