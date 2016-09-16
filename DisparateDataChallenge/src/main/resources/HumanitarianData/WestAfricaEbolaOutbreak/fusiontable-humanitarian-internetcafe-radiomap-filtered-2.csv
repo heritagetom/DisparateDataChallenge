@@ -1,0 +1,18 @@
+ETC_NetHope_UID,NetHope_ConnReqNum,Project_Group,Org_name,Country,Location_name,Location_type,Admin1,Admin2,Admin3,PCODEs,LatLLong_Confirmed,Latitude,Longitude,Service_Type,Service_Status,Internet_Capacity,Contact_Name,Contact_e-address,Contact_address,Contact_Tel,Editor,Edit_date,GISCorp_Comments,Connectivity_type,Distribution_network_type,Radio_connectivity_type,Up_speed,Down_speed,Electrical_service,Radio_room_type,Service_providers,Vehicles with radios
+,,2,NGO,GIN,Coyah ETU,ETU,Coyah,Coyah,"
+",,N,,,NGO radio coms,PLANNED,,rob buurveld,rob.buurveld@wfp.org,,,MR,,,,,,,,,,NetHope,
+079,,2,WAHA ETU,GIN,Beyla,ETU,Beyla,,,,Y,"8.4043
+","-8.382644
+",NGO radio coms,PLANNED,,rob buurveld,rob.buurveld@wfp.org,,,MR,12/24/2014,"VERIFIED  8°24'15.48""N ,
+
+8°22'57.72""W ",,,,,,,,,
+054,,2,WFP,GIN,Conakry,Radio coms,Conakry,,,,N,NA,NA,UN radio coms,OPEN,,Rob BUURVELD,rob.buurveld@wfp.org,,,MR,12/24/2014,,,,Upgrade Repeater,,,,24x7,,
+055,,2,WFP,GIN,Conakry,Radio coms,Conakry,,,,N,NA,NA,NGO radio coms,OPEN,,Rob BUURVELD,rob.buurveld@wfp.org,,,MR,12/24/2014,,,,Upgrade Repeater,,,,24x7,,
+056,,2,WFP,GIN,Kissidougou,Radio coms,Kissidougou,,,,N,NA,NA,UN radio coms,OPEN,,Rob Buurveld,rob.buurveld@wfp.org,,,MR,12/24/2014,,,,New Repeater,,,,24x7,,
+057,,2,WFP,GIN,Kissidougou,Radio coms,Kissidougou,,,,N,NA,NA,NGO radio coms,OPEN,,rob buurveld,rob.buurveld@wfp.org,,,MR,12/24/2014,,,,New Repeater,,,,24x7,,
+058,,2,WFP,GIN,Gueckedou,Radio coms,Gueckedou,,,,N,NA,NA,UN radio coms,OPEN,,rob buurveld,rob.buurveld@wfp.org,,,MR,12/24/2014,,,,Upgrade Repeater,,,,24x7,,
+059,,2,WFP,GIN,Gueckedou,Radio coms,Gueckedou,,,,N,NA,NA,NGO radio coms,OPEN,,rob buurveld,rob.buurveld@wfp.org,,,MR,12/24/2014,,,,Upgrade Repeater,,,,8x5,,
+060,,2,WFP,GIN,Macenta,Radio coms,Macenta,,,,N,NA,NA,UN radio coms,PLANNED,,rob buurveld,rob.buurveld@wfp.org,,,MR,12/24/2014,,,,Upgrade Repeater,,,,8x5,,
+061,,2,WFP,GIN,Macenta,Radio coms,Macenta,,,,N,NA,NA,NGO radio coms,PLANNED,,rob buurveld,rob.buurveld@wfp.org,,,MR,12/24/2014,,,,Upgrade Repeater,,,,8x5,,
+069,,2,WFP,GIN,Nzerekore,Radio coms,Nzerekore,,,,N,NA,NA,UN radio coms,OPEN,,rob buurveld,rob.buurveld@wfp.org,,,MR,12/24/2014,,,,Upgrade Repeater,,,,24x7,,
+070,,2,WFP,GIN,Nzerekore,Radio coms,Nzerekore,,,,N,NA,NA,NGO radio coms,OPEN,,rob buurveld,rob.buurveld@wfp.org,,,MR,12/24/2014,,,,Upgrade Repeater,,,,24x7,,

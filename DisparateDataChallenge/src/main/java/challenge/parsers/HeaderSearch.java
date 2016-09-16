@@ -35,7 +35,7 @@ public class HeaderSearch {
 		}
 	}
 	
-	public void readFile(String filePath) throws IOException{
+	private void readFile(String filePath) throws IOException{
 		File xlsfile = new File(filePath);
 		FileInputStream mystream = new FileInputStream(xlsfile);
 		Workbook wb;
@@ -59,33 +59,41 @@ public class HeaderSearch {
 		for(int i=0;i<numSheets;i++){
 			Sheet currSheet = wb.getSheetAt(i);
 			System.out.println("====== Sheet: "+currSheet.getSheetName()+" ======");
-			searchForHeaders(currSheet);
+			List<Integer> headersInSheet = searchForHeaders(currSheet);
+			List<Integer> headersFiltered = filter(headersInSheet,currSheet);
+			System.out.println(headersFiltered);
 		}
 		
 		//Close Workbook and Input Streams
 		wb.close();
-		mystream.close();
-		
-		//return this.headers;
+		mystream.close();	
 	}
 	
-	private void searchForHeaders(Sheet worksheet){
+	private List<Integer> searchForHeaders(Sheet worksheet){
 		//Get Number of Rows
 		Integer numRows = worksheet.getLastRowNum();
 		
+		//Initiate Header Array
+		List<Integer> headerRows = new ArrayList<Integer>();
+		
 		//Iterate through rows and return content
 		for(int row=0;row<numRows;row++){
-			System.out.println("--Row: "+row);
 			Row currRow = worksheet.getRow(row);
+			//If row blank - skip to next one
 			if(currRow==null){
 				continue;
+			//Else, get the info of each cell
 			}else{
 				Map<String,List<Integer>> tempmap = new HashMap<String,List<Integer>>();
 				tempmap = getCellInfo(currRow);
-				boolean rowCheck = isHeader(tempmap);
-				System.out.println("Is Row Header: "+rowCheck);
+				boolean rowCheck = isHeader(tempmap,row);
+				//If rowCheck is passed, add this as a header row
+				if(rowCheck){
+					headerRows.add(row);
+				}
 			}
-		}	
+		}
+		return headerRows;
 	}
 	
 	private Map<String,List<Integer>> getCellInfo(Row singleRow){
@@ -99,11 +107,16 @@ public class HeaderSearch {
 		List<Integer> boldArray = new ArrayList<Integer>();
 		
 		//Iterate through cells
+		Integer blankCount = 0;
 		for(int cell=0;cell<numCells;cell++){
 			Cell currCell = singleRow.getCell(cell);
+			//If blank cell - skip
 			if(currCell==null || currCell.getCellType()==Cell.CELL_TYPE_BLANK){
+				blankCount+=1;
 				continue;
+			//Else - determine style,format,etc.
 			}else{
+				//Get style, font, color, and bold(ness)
 				styleArray.add(currCell.getCellType());
 				fontArray.add((int) currCell.getCellStyle().getFontIndex());
 				colorArray.add((int) currCell.getCellStyle().getFillBackgroundColor());
@@ -116,22 +129,22 @@ public class HeaderSearch {
 			}
 		}
 		
+		//Get Blank Ratio
+		List<Integer> blankArray = new ArrayList<Integer>();
+		blankArray.add(blankCount);
+		
 		//Store Cell Info in Hashmap
 		Map<String,List<Integer>> hmap = new HashMap<String,List<Integer>>();
 		hmap.put("type", styleArray);
 		hmap.put("font", fontArray);
 		hmap.put("color", colorArray);
 		hmap.put("bold", boldArray);
-		
-		System.out.println("Cell Type: "+styleArray);
-		System.out.println("Font Type: "+fontArray);
-		System.out.println("Color Type: "+colorArray);
-		System.out.println("Bold Type: "+boldArray );
+		hmap.put("blanks", blankArray);
 		
 		return hmap;
 	}
 	
-	private boolean isHeader(Map<String,List<Integer>> infoMap){
+	private boolean isHeader(Map<String,List<Integer>> infoMap, Integer rowNum){
 		//Initialize Variables
 		boolean colorCheck = false;
 		boolean boldCheck = false;
@@ -160,16 +173,69 @@ public class HeaderSearch {
 			}
 		}
 		
-		boolean isheader = check(boldCheck,colorCheck);
+		//Determine if headers based on results
+		//System.out.println("Row "+rowNum+": "+boldCheck+", "+colorCheck);
+		boolean isheader = check(boldCheck,colorCheck,rowNum);
 		return isheader;
 	}
 	
-	private boolean check(boolean boldCheck, boolean colorCheck){
+	private boolean check(boolean boldCheck, boolean colorCheck,Integer currRow){
 		//If Row Passes All 3 Test - It's probably a header
-		if(boldCheck || colorCheck){
+		if(boldCheck && colorCheck){
 			return true;
+	    //Else - if row is first row and bold - It's probably a header
+		}else if(boldCheck && currRow<3){
+			return true;
+		//Else - Not a header
 		}else{
 			return false;
 		}
+	}
+	
+	private List<Integer> filter(List<Integer> headerArray, Sheet currSheet){
+		//Iterate through header rows
+		Integer priorrow=0;
+		
+		for(int row=0;row<headerArray.size();row++){
+			//If a consecutive row - remove
+			Integer headerRow = headerArray.get(row);
+			Integer condition = headerRow-1;
+			//Remove Duplicates
+			if((priorrow==condition) && (row!=0) && (headerArray.get(row-1)!=null)){
+				headerArray.set(row,null);
+				priorrow = headerRow;
+				continue;
+			//Else - not a consecutive row, check row below it
+			}else{
+				//Get Current and Next Row
+				Row currRow = currSheet.getRow(headerRow);
+				Row nextRow = currSheet.getRow(headerRow+1);
+				//Get Non-Empty Cells
+				Integer nextRowVal = countCellsWithContent(nextRow);
+				Integer currRowVal = countCellsWithContent(currRow);
+				//If row below bigger than row above - then row above not header
+				if(nextRowVal>currRowVal){
+					headerArray.set(row,null);
+				}
+				priorrow=headerRow;
+			}
+		}
+		
+		return headerArray;
+		
+	}
+	
+	private Integer countCellsWithContent(Row myRow){
+		Integer cellNum = (int) myRow.getLastCellNum();
+		Integer counter = 0;
+		for(int cell=0;cell<cellNum;cell++){
+			Cell currCell = myRow.getCell(cell);
+			if(currCell==null || currCell.getCellType()==Cell.CELL_TYPE_BLANK){
+				continue;
+			}else{
+				counter+=1;
+			}
+		}
+		return counter;
 	}
 }

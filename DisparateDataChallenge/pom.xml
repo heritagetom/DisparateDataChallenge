@@ -66,13 +66,26 @@
     		<version>1.1</version>
 		</dependency>
 		
+		<!-- Spark Dependency -->
 		<dependency>
 			<groupId>org.apache.spark</groupId>
 			<artifactId>spark-core_2.10</artifactId>
 			<version>1.6.0</version>
 		</dependency>
 		
+		<!-- ElasticSearch Dependency -->
+		<dependency>
+    		<groupId>org.elasticsearch</groupId>
+    		<artifactId>elasticsearch</artifactId>
+    		<version>2.4.0</version>
+		</dependency>
 		
+		<!-- JSON Object -->
+		<dependency>
+    		<groupId>org.json</groupId>
+    		<artifactId>json</artifactId>
+    		<version>20160810</version>
+		</dependency>	
 	</dependencies>
 	
 	<repositories>
