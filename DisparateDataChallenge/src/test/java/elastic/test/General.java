@@ -11,11 +11,12 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class General {
 	
-	public static void main(String[] args) throws IOException{
+	public static void main(String[] args) throws IOException, JSONException{
 		String pathToJson = "/Users/jacobtutmaher/Desktop/example3.json";
 		//String pathToElastic = "/Users/jacobtutmaher/Desktop/elasticsearch";
 		//String pathToKibana = "/Users/jacobtutmaher/Desktop/kibana";
