@@ -11,10 +11,10 @@ import org.json.simple.JSONObject;
 
 public class CSVToJson {
 	
-	public JSONArray convertFile(File f) {
+	public ArrayList<JSONObject> convertFile(File f) {
 
 		//Set up JSON objects
-		JSONArray jsonObjectList = new JSONArray(); 
+		ArrayList<JSONObject> jsonObjectList = new ArrayList<JSONObject>(); 
 		JSONObject jsonContent = new JSONObject();
 
 		try {
