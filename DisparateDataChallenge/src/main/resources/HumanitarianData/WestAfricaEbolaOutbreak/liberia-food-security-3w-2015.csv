@@ -1,0 +1,169 @@
+Country,Region,Organisation,Activity,Pcode,Org type
+Liberia,Bomi,Food and Agriculture Organization,Agricultural Inputs,LBR01,International NGO
+Liberia,Bomi,PCI,Agricultural Inputs,LBR01,International NGO
+Liberia,Bomi,PLAN,Agricultural Inputs,LBR01,International NGO
+Liberia,Bomi,Action Against Hunger,Cash Assistance,LBR01,International NGO
+Liberia,Bomi,PCI,Cash Assistance,LBR01,International NGO
+Liberia,Bomi,ZOA,Cash Assistance,LBR01,International NGO
+Liberia,Bomi,PLAN,Food Assistance,LBR01,International NGO
+Liberia,Bomi,WFP,Food Assistance,LBR01,International NGO
+Liberia,Bomi,WFP,Agricultural Inputs,LBR01,International NGO
+Liberia,Bomi,WFP,Training,LBR01,International NGO
+Liberia,Bomi,WFP,Cash Assistance,LBR01,International NGO
+Liberia,Bomi,Action Against Hunger,Training,LBR01,International NGO
+Liberia,Bomi,Food and Agriculture Organization,Training,LBR01,International NGO
+Liberia,Bomi,PCI,Training,LBR01,International NGO
+Liberia,Bomi,PLAN,Training,LBR01,International NGO
+Liberia,Bomi,ZOA,Training,LBR01,International NGO
+Liberia,Bong,ACDI/VOCA,Agricultural Inputs,LBR02,International NGO
+Liberia,Bong,BRAC,Agricultural Inputs,LBR02,International NGO
+Liberia,Bong,Food and Agriculture Organization,Agricultural Inputs,LBR02,International NGO
+Liberia,Bong,ACDI/VOCA,Cash Assistance,LBR02,International NGO
+Liberia,Bong,Food and Agriculture Organization,Cash Assistance,LBR02,International NGO
+Liberia,Bong,Save the Children,Cash Assistance,LBR02,International NGO
+Liberia,Bong,ZOA,Cash Assistance,LBR02,International NGO
+Liberia,Bong,ACDI/VOCA,Food Assistance,LBR02,International NGO
+Liberia,Bong,WFP,Food Assistance,LBR02,International NGO
+Liberia,Bong,WFP,Cash Assistance,LBR02,International NGO
+Liberia,Bong,WFP,Agricultural Inputs,LBR02,International NGO
+Liberia,Bong,WFP,Training,LBR02,International NGO
+Liberia,Bong,PCI,Training,LBR02,International NGO
+Liberia,Bong,ACDI/VOCA,Training,LBR02,International NGO
+Liberia,Bong,BRAC,Training,LBR02,International NGO
+Liberia,Bong,Food and Agriculture Organization,Training,LBR02,International NGO
+Liberia,Bong,ZOA,Training,LBR02,International NGO
+Liberia,Gbarpolu,Finnish Church Aid,Agricultural Inputs,LBR03,International NGO
+Liberia,Gbarpolu,Finnish Church Aid,Cash Assistance,LBR03,International NGO
+Liberia,Gbarpolu,ZOA,Cash Assistance,LBR03,International NGO
+Liberia,Gbarpolu,Samaritan's Purse,Food Assistance,LBR03,International NGO
+Liberia,Gbarpolu,WFP,Food Assistance,LBR03,International NGO
+Liberia,Gbarpolu,WFP,Cash Assistance,LBR03,International NGO
+Liberia,Gbarpolu,WFP,Agricultural Inputs,LBR03,International NGO
+Liberia,Gbarpolu,WFP,Training,LBR03,International NGO
+Liberia,Gbarpolu,Finnish Church Aid,Training,LBR03,International NGO
+Liberia,Gbarpolu,Samaritan's Purse,Training,LBR03,International NGO
+Liberia,Gbarpolu,ZOA,Training,LBR03,International NGO
+Liberia,Grand Bassa,WFP,Food Assistance,LBR04,International NGO
+Liberia,Grand Bassa,WFP,Agricultural Inputs,LBR04,International NGO
+Liberia,Grand Bassa,WFP,Training,LBR04,International NGO
+Liberia,Grand Bassa,WFP,Cash Assistance,LBR04,International NGO
+Liberia,Grand Bassa,BRAC,Agricultural Inputs,LBR04,International NGO
+Liberia,Grand Bassa,Food and Agriculture Organization,Training,LBR04,International NGO
+Liberia,Grand Bassa,BRAC,Training,LBR04,International NGO
+Liberia,Grand Bassa,Food and Agriculture Organization,Agricultural Inputs,LBR04,International NGO
+Liberia,Grand Cape Mount,WFP,Agricultural Inputs,LBR05,International NGO
+Liberia,Grand Cape Mount,WFP,Cash Assistance,LBR05,International NGO
+Liberia,Grand Cape Mount,WFP,Training,LBR05,International NGO
+Liberia,Grand Cape Mount,WFP,Food Assistance,LBR05,International NGO
+Liberia,Grand Cape Mount,Food and Agriculture Organization,Agricultural Inputs,LBR05,International NGO
+Liberia,Grand Cape Mount,Finnish Church Aid,Agricultural Inputs,LBR05,International NGO
+Liberia,Grand Cape Mount,PCI,Agricultural Inputs,LBR05,International NGO
+Liberia,Grand Cape Mount,Finnish Church Aid,Cash Assistance,LBR05,International NGO
+Liberia,Grand Cape Mount,PCI,Cash Assistance,LBR05,International NGO
+Liberia,Grand Cape Mount,ZOA,Cash Assistance,LBR05,International NGO
+Liberia,Grand Cape Mount,Food and Agriculture Organization,Training,LBR05,International NGO
+Liberia,Grand Cape Mount,Finnish Church Aid,Training,LBR05,International NGO
+Liberia,Grand Cape Mount,PCI,Training,LBR05,International NGO
+Liberia,Grand Cape Mount,ZOA,Training,LBR05,International NGO
+Liberia,Grand Gedeh,WFP,Agricultural Inputs,LBR06,International NGO
+Liberia,Grand Gedeh,WFP,Cash Assistance,LBR06,International NGO
+Liberia,Grand Gedeh,WFP,Training,LBR06,International NGO
+Liberia,Grand Gedeh,WFP,Food Assistance,LBR06,International NGO
+Liberia,Grand Gedeh,Food and Agriculture Organization,Agricultural Inputs,LBR06,International NGO
+Liberia,Grand Gedeh,OXFAM,Agricultural Inputs,LBR06,International NGO
+Liberia,Grand Gedeh,Welthungerhilfe,Agricultural Inputs,LBR06,International NGO
+Liberia,Grand Gedeh,OXFAM,Cash Assistance,LBR06,International NGO
+Liberia,Grand Gedeh,Food and Agriculture Organization,Training,LBR06,International NGO
+Liberia,Grand Gedeh,OXFAM,Training,LBR06,International NGO
+Liberia,Grand Gedeh,Welthungerhilfe,Training,LBR06,International NGO
+Liberia,Grand Kru,WFP,Training,LBR07,International NGO
+Liberia,Grand Kru,WFP,Agricultural Inputs,LBR07,International NGO
+Liberia,Grand Kru,WFP,Cash Assistance,LBR07,International NGO
+Liberia,Grand Kru,WFP,Food Assistance,LBR07,International NGO
+Liberia,Lofa,WFP,Agricultural Inputs,LBR08,International NGO
+Liberia,Lofa,WFP,Training,LBR08,International NGO
+Liberia,Lofa,WFP,Cash Assistance,LBR08,International NGO
+Liberia,Lofa,WFP,Food Assistance,LBR08,International NGO
+Liberia,Lofa,BRAC,Agricultural Inputs,LBR08,International NGO
+Liberia,Lofa,Food and Agriculture Organization,Agricultural Inputs,LBR08,International NGO
+Liberia,Lofa,Mercy Corps,Agricultural Inputs,LBR08,International NGO
+Liberia,Lofa,Food and Agriculture Organization,Cash Assistance,LBR08,International NGO
+Liberia,Lofa,Mercy Corps,Cash Assistance,LBR08,International NGO
+Liberia,Lofa,BRAC,Training,LBR08,International NGO
+Liberia,Lofa,Food and Agriculture Organization,Training,LBR08,International NGO
+Liberia,Lofa,Mercy Corps,Training,LBR08,International NGO
+Liberia,Lofa,Samaritan's Purse,Training,LBR08,International NGO
+Liberia,Margibi,WFP,Agricultural Inputs,LBR09,International NGO
+Liberia,Margibi,WFP,Cash Assistance,LBR09,International NGO
+Liberia,Margibi,WFP,Food Assistance,LBR09,International NGO
+Liberia,Margibi,WFP,Training,LBR09,International NGO
+Liberia,Margibi,BRAC,Agricultural Inputs,LBR09,International NGO
+Liberia,Margibi,Mercy Corps,Agricultural Inputs,LBR09,International NGO
+Liberia,Margibi,ZOA,Agricultural Inputs,LBR09,International NGO
+Liberia,Margibi,Africare,Cash Assistance,LBR09,International NGO
+Liberia,Margibi,Mercy Corps,Cash Assistance,LBR09,International NGO
+Liberia,Margibi,ZOA,Cash Assistance,LBR09,International NGO
+Liberia,Margibi,BRAC,Training,LBR09,International NGO
+Liberia,Margibi,Mercy Corps,Training,LBR09,International NGO
+Liberia,Margibi,Samaritan's Purse,Training,LBR09,International NGO
+Liberia,Margibi,ZOA,Training,LBR09,International NGO
+Liberia,Maryland,WFP,Agricultural Inputs,LBR10,International NGO
+Liberia,Maryland,WFP,Cash Assistance,LBR10,International NGO
+Liberia,Maryland,WFP,Food Assistance,LBR10,International NGO
+Liberia,Maryland,WFP,Training,LBR10,International NGO
+Liberia,Maryland,Food and Agriculture Organization,Agricultural Inputs,LBR10,International NGO
+Liberia,Maryland,Food and Agriculture Organization,Training,LBR10,International NGO
+Liberia,Montserrado,WFP,Agricultural Inputs,LBR11,International NGO
+Liberia,Montserrado,WFP,Cash Assistance,LBR11,International NGO
+Liberia,Montserrado,WFP,Food Assistance,LBR11,International NGO
+Liberia,Montserrado,WFP,Training,LBR11,International NGO
+Liberia,Montserrado,BRAC,Agricultural Inputs,LBR11,International NGO
+Liberia,Montserrado,Mercy Corps,Agricultural Inputs,LBR11,International NGO
+Liberia,Montserrado,ZOA,Agricultural Inputs,LBR11,International NGO
+Liberia,Montserrado,Action Against Hunger,Cash Assistance,LBR11,International NGO
+Liberia,Montserrado,Africare,Cash Assistance,LBR11,International NGO
+Liberia,Montserrado,Mercy Corps,Cash Assistance,LBR11,International NGO
+Liberia,Montserrado,ZOA,Cash Assistance,LBR11,International NGO
+Liberia,Montserrado,Action Against Hunger,Training,LBR11,International NGO
+Liberia,Montserrado,BRAC,Training,LBR11,International NGO
+Liberia,Montserrado,Mercy Corps,Training,LBR11,International NGO
+Liberia,Montserrado,Samaritan's Purse,Training,LBR11,International NGO
+Liberia,Montserrado,ZOA,Training,LBR11,International NGO
+Liberia,Nimba,WFP,Agricultural Inputs,LBR12,International NGO
+Liberia,Nimba,WFP,Cash Assistance,LBR12,International NGO
+Liberia,Nimba,WFP,Food Assistance,LBR12,International NGO
+Liberia,Nimba,WFP,Training,LBR12,International NGO
+Liberia,Nimba,ACDI/VOCA,Agricultural Inputs,LBR12,International NGO
+Liberia,Nimba,BRAC,Agricultural Inputs,LBR12,International NGO
+Liberia,Nimba,Food and Agriculture Organization,Agricultural Inputs,LBR12,International NGO
+Liberia,Nimba,OXFAM,Agricultural Inputs,LBR12,International NGO
+Liberia,Nimba,ACDI/VOCA,Cash Assistance,LBR12,International NGO
+Liberia,Nimba,Food and Agriculture Organization,Cash Assistance,LBR12,International NGO
+Liberia,Nimba,OXFAM,Cash Assistance,LBR12,International NGO
+Liberia,Nimba,ACDI/VOCA,Food Assistance,LBR12,International NGO
+Liberia,Nimba,ACDI/VOCA,Training,LBR12,International NGO
+Liberia,Nimba,PCI,Training,LBR12,International NGO
+Liberia,Nimba,BRAC,Training,LBR12,International NGO
+Liberia,Nimba,Food and Agriculture Organization,Training,LBR12,International NGO
+Liberia,Nimba,OXFAM,Training,LBR12,International NGO
+Liberia,Rivercess,WFP,Agricultural Inputs,LBR13,International NGO
+Liberia,Rivercess,WFP,Cash Assistance,LBR13,International NGO
+Liberia,Rivercess,WFP,Food Assistance,LBR13,International NGO
+Liberia,Rivercess,WFP,Training,LBR13,International NGO
+Liberia,River Ghee,WFP,Agricultural Inputs,LBR14,International NGO
+Liberia,River Ghee,WFP,Cash Assistance,LBR14,International NGO
+Liberia,River Ghee,WFP,Food Assistance,LBR14,International NGO
+Liberia,River Ghee,WFP,Training,LBR14,International NGO
+Liberia,River Ghee,Food and Agriculture Organization,Agricultural Inputs,LBR14,International NGO
+Liberia,River Ghee,OXFAM,Agricultural Inputs,LBR14,International NGO
+Liberia,River Ghee,Welthungerhilfe,Agricultural Inputs,LBR14,International NGO
+Liberia,River Ghee,OXFAM,Cash Assistance,LBR14,International NGO
+Liberia,River Ghee,Food and Agriculture Organization,Training,LBR14,International NGO
+Liberia,River Ghee,OXFAM,Training,LBR14,International NGO
+Liberia,River Ghee,Welthungerhilfe,Training,LBR14,International NGO
+Liberia,Sinoe,WFP,Agricultural Inputs,LBR15,International NGO
+Liberia,Sinoe,WFP,Cash Assistance,LBR15,International NGO
+Liberia,Sinoe,WFP,Food Assistance,LBR15,International NGO
+Liberia,Sinoe,WFP,Training,LBR15,International NGO
+Liberia,Sinoe,Welthungerhilfe,Agricultural Inputs,LBR15,International NGO
+Liberia,Sinoe,Welthungerhilfe,Training,LBR15,International NGO

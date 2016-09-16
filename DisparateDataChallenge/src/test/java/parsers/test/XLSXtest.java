@@ -30,6 +30,7 @@ public class XLSXtest {
 		
 		for(File file:files){
 			//Path
+			file = files[8];
 			String testpath = file.getPath();
 			System.out.println(testpath);
 			
@@ -77,6 +78,7 @@ public class XLSXtest {
 			System.out.println("");
 			
 			teststream.close();
+			break;
 		}
 	}
 	
