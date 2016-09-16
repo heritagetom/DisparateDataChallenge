@@ -59,7 +59,7 @@ public class IndexDocument {
 
 			e.printStackTrace();
 		} catch (IOException e) {
-
+//
 			e.printStackTrace();
 		}
 	}
