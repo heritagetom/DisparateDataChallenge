@@ -66,12 +66,14 @@
     		<version>1.1</version>
 		</dependency>
 		
+		<!-- Spark Dependency -->
 		<dependency>
 			<groupId>org.apache.spark</groupId>
 			<artifactId>spark-core_2.10</artifactId>
 			<version>1.6.0</version>
 		</dependency>
 		
+<<<<<<< HEAD
 		<!-- org.json dependency for xml converter -->
 		<dependency>
 		    <groupId>org.json</groupId>
@@ -85,6 +87,22 @@
 			<version>2.4.0</version>
 			</dependency>			
 		</dependencies>
+=======
+		<!-- ElasticSearch Dependency -->
+		<dependency>
+    		<groupId>org.elasticsearch</groupId>
+    		<artifactId>elasticsearch</artifactId>
+    		<version>2.4.0</version>
+		</dependency>
+		
+		<!-- JSON Object -->
+		<dependency>
+    		<groupId>org.json</groupId>
+    		<artifactId>json</artifactId>
+    		<version>20160810</version>
+		</dependency>	
+	</dependencies>
+>>>>>>> JakesBranch
 	
 	<repositories>
 		<repository>
