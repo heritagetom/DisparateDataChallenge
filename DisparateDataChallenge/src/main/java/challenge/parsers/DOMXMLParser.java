@@ -1,9 +1,14 @@
 package challenge.parsers;
 
 import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.transform.*;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
 
 import java.util.HashMap;
 import javax.xml.parsers.DocumentBuilder;
+
+import org.w3c.dom.Attr;
 import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
 import org.w3c.dom.Node;
@@ -29,6 +34,7 @@ public class DOMXMLParser
 	private HashMap<String, DVMap> siteMap = new HashMap<String,DVMap>();
 	private boolean foundMatch =false;
 	private String matchValue = "";
+	Document doc;
 
 	//constructor accepts an XML file, creates a tree structure, and defines its root element
 	public DOMXMLParser(File file)
@@ -37,19 +43,89 @@ public class DOMXMLParser
 		{
 			DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 			DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-			Document doc = dBuilder.parse(file);
+			doc = dBuilder.parse(file);
 			doc.getDocumentElement().normalize();
 			
 			int numAttrs = doc.getDocumentElement().getAttributes().getLength();
 			int numElements = doc.getDocumentElement().getChildNodes().getLength();
 
-			System.out.println("The root element (" + doc.getDocumentElement().getNodeName()+") has "+ numAttrs + " attributes and " + numElements +" elements." );
+			//System.out.println("The root element (" + doc.getDocumentElement().getNodeName()+") has "+ numAttrs + " attributes and " + numElements +" elements." );
 			rootElement = (Element)doc.getDocumentElement();//create root node
-			System.out.println("-----------------------------------");	
+			//System.out.println("-----------------------------------");	
 		} 
 	 	catch (Exception e) 
 		{	    e.printStackTrace();
 		}
+	}
+	
+	
+	//modifyForES was written to resolve the "siteProperties" issue in the dv
+	//xml files. In order for elastic search to accept the json file, the siteProperties
+	//node in the original xml must be modified to have one node with a name and
+	//value rather than two separate nodes holding the name and value
+	
+	public void modifyForES(String path) throws TransformerException
+	{
+		NodeList nList = rootElement.getElementsByTagName("ns1:timeSeries");
+		Node queryInfo =rootElement.getFirstChild();
+		rootElement.removeChild(queryInfo);
+		for(int i=0;i<nList.getLength();i++)
+		{
+			String value,name;
+			Node currentNode = nList.item(i);
+			NodeList cList = currentNode.getChildNodes();
+			Element ns1values = (Element)cList.item(2);
+			Element currentElement = (Element)currentNode;			
+			
+			//elastic search doesn't like that some values are longs and others
+			//are doubles
+			Node valueNode = currentElement.getElementsByTagName("ns1:value").item(0);
+			Long qualValue = (long)Double.parseDouble(valueNode.getTextContent());
+			valueNode.setTextContent(qualValue.toString());
+			
+			//xml files have an empty object "method description" which 
+			//elasticsearch doesn't like. it is removed here.
+			/*Node methodDescNode = currentElement.getElementsByTagName("ns1:method").item(0);
+			methodDescNode.removeChild(methodDescNode.getFirstChild());
+			Node methodID = methodDescNode.getAttributes().getNamedItem("methodID");
+			String methodName = methodID.getNodeName();
+			String methodVal = methodID.getNodeValue();
+			Element newMethodNode = doc.createElement(methodName);
+			newMethodNode.setTextContent(methodVal);
+			Element methodDescElement = (Element)methodDescNode;
+			methodDescElement.removeAttribute("methodID");
+			methodDescElement.appendChild(newMethodNode);*/
+			
+			Element sourceInfo = (Element)cList.item(0);
+			//System.out.println("source info node: " + sourceInfo.getNodeName());
+			NodeList infoList = sourceInfo.getElementsByTagName("ns1:siteProperty");
+			//System.out.println(infoList.getLength());
+			for(int j=0;j<infoList.getLength();j++)
+			{
+				Node curNode = infoList.item(j);
+				name = curNode.getAttributes().getNamedItem("name").getNodeValue();
+				value = curNode.getTextContent();
+				Element curElement = (Element)curNode;
+				if(curNode.hasChildNodes())
+				{
+				curElement.removeAttributeNode((Attr)curNode.getAttributes().item(0));
+				curElement.removeChild(curNode.getFirstChild());
+				Node n = doc.createElement(name);
+				curElement.appendChild(n);
+				n.setTextContent(value);
+				//System.out.println(curElement.getFirstChild().getNodeName());
+				//System.out.println(curElement.getLastChild().getTextContent());
+				}
+
+					
+			}
+						
+		}
+		TransformerFactory transformerFactory = TransformerFactory.newInstance();
+		Transformer transformer = transformerFactory.newTransformer();
+		DOMSource source = new DOMSource(doc);
+		StreamResult result = new StreamResult(new File(path));
+		transformer.transform(source, result);
 	}
 	
 	
@@ -159,6 +235,8 @@ public class DOMXMLParser
 	}
 	
 	
+	
+	//right now, only will return first instance of value
 	public String searchFor(String searchValue)
 	{
 		this.searchValue = searchValue;
