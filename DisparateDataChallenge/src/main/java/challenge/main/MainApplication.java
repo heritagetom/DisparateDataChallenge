@@ -41,22 +41,24 @@ public class MainApplication {
 	public void run(String database, String dataset, String dataLink) {
 
 		//Set index path 
-		String type = dataLink.replaceAll("\\s+","");
-		String ind = database.replaceAll("\\s+","");
-		String fileName = "src/main/resources/"+ type + "/" + ind + "/" + dataset;
+		String type = dataLink.toLowerCase().replaceAll("\\s+","");
+		String ind = database.toLowerCase().replaceAll("\\s+","");
+		String typeFileName = dataLink.replaceAll("\\s+", "");
+		String indFileName = database.replaceAll("\\s", "");
+		String fileName = "src/main/resources/"+ indFileName + "/" + typeFileName + "/" + dataset;
 
 		//Launch elasticsearch
-		runElasticSearch("C:\\elasticsearch-2.4.0\\elasticsearch-2.4.0\\bin\\elasticsearch.bat");
+		//runElasticSearch("C:\\elasticsearch-2.4.0\\elasticsearch-2.4.0\\bin\\elasticsearch.bat");
 
 		//Wait for elasticsearch to start
-		sleep();
+		//sleep();
 		
 		
 		//Launch Kibana
-		runElasticSearch("C:\\kibana-4.6.1\\kibana-4.6.1-windows-x86\\bin\\kibana.bat");
+		//runElasticSearch("C:\\kibana-4.6.1\\kibana-4.6.1-windows-x86\\bin\\kibana.bat");
 
 		//Wait for Kibana to run
-		sleep();
+		//sleep();
 		
 		//Store document into elasticsearch
 
@@ -73,7 +75,7 @@ public class MainApplication {
 
 	public static void runElasticSearch(String path) {
 		try{    
-			Process p = Runtime.getRuntime().exec("cmd.exe /k start " + path);
+			Process p = Runtime.getRuntime().exec("cmd.exe /k start" + path);
 			p.waitFor();
 
 		}catch( Exception e ){

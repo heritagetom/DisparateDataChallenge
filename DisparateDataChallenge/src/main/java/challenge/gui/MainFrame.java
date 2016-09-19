@@ -14,6 +14,9 @@ import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.DefaultComboBoxModel;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.concurrent.TimeUnit;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextPane;
@@ -27,6 +30,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JScrollBar;
 import javax.swing.SwingConstants;
 import java.awt.Color;
+import java.awt.Desktop;
+
 import javax.swing.JPanel;
 import java.awt.Font;
 
@@ -157,7 +162,7 @@ public class MainFrame {
 				{
 					comboBox_DataLink.setModel(new DefaultComboBoxModel(new String[] {"West Africa Ebola Outbreak", "Data for World Food Program", "UN Humanitarian response", "Humanitarian Open Street Map", "Humanitarian Data Exchange", "U.S. Fire Data"}));
 
-					comboBox_DataSet.setModel(new DefaultComboBoxModel(new String[]{"coe-acronyms.csv","Ebola - West Africa - Ebola Treatment Centres, Isolation Wards Hospitals and...","Number of Ebola Cases and Deaths in Affected Countries","Liberia - Admin Level 2 Boundaries",
+					comboBox_DataSet.setModel(new DefaultComboBoxModel(new String[]{"Guinea_ETC.csv","Ebola - West Africa - Ebola Treatment Centres, Isolation Wards Hospitals and...","Number of Ebola Cases and Deaths in Affected Countries","Liberia - Admin Level 2 Boundaries",
 							"Guinea Capitale of Région, District and Sub District","Data for Ebola Recovery","Liberia Food Security 3W","Topline Ebola Outbreak Figures",
 							"Funding Coverage of the Ebola Virus Outbreak Emergency","Liberia Education 3","Liberia WASH 3W","Financial tracking of private sector contributions Ebola 2014",
 							"3W OCHA Guinea as of 16 June 2015","3W Ebola Sierra Leone","Ebola outbreaks before 2014","Sierra Leone NERC Ebola Care Facilities Master List",""}));
@@ -249,18 +254,28 @@ public class MainFrame {
 					dataBase = comboBox_Database.getSelectedItem().toString();
 					dataLink = comboBox_DataLink.getSelectedItem().toString();
 					dataSet = comboBox_DataSet.getSelectedItem().toString();
-					
+
 					//Hide frame
 					frame.setVisible(false);
-					
+
 					//Run main application
 					MainApplication main = new MainApplication();
 					main.run(dataBase, dataSet,dataLink);
-					
-					//FilterSelection.show(dataBase, dataLink, dataSet);
+
+					if(Desktop.isDesktopSupported()){
+						Desktop desktop = Desktop.getDesktop();
+						try {
+							desktop.browse(new URI("http://localhost:5601/app/kibana"));
+						} catch (IOException | URISyntaxException ioex) {
+							// TODO Auto-generated catch block
+							ioex.printStackTrace();
+						}
+					}
+
+						//FilterSelection.show(dataBase, dataLink, dataSet);
+					}
 				}
-			}
-		});
+			});
 		frame.getContentPane().setLayout(null);
 
 
@@ -297,5 +312,5 @@ public class MainFrame {
 		btnSelectFilters.setBounds(141, 144, 124, 29);
 		frame.getContentPane().add(btnSelectFilters);
 
+		}
 	}
-}
