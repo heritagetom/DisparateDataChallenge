@@ -74,25 +74,14 @@
 			<version>1.6.0</version>
 		</dependency>
 
-<<<<<<< HEAD
 		<!-- org.json dependency for xml converter -->
 		<dependency>
 			<groupId>org.json</groupId>
 			<artifactId>json</artifactId>
 			<version>20090211</version>
 		</dependency>
-
-		<!-- ElasticSearch Dependency -->
-		<dependency>
-			<groupId>org.elasticsearch</groupId>
-			<artifactId>elasticsearch</artifactId>
-			<version>2.4.0</version>
-		</dependency>
-		
-		<!-- Simple JSON Dependecies -->
-=======
+	
 		<!-- Simple JSON Dependencies -->
->>>>>>> branch 'Alyssa' of https://github.com/heritagetom/DisparateDataChallenge.git
 		<dependency>
 			<groupId>com.googlecode.json-simple</groupId>
 			<artifactId>json-simple</artifactId>

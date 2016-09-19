@@ -16,14 +16,16 @@ import challenge.converters.CSVToJson;
 
 
 public class IndexDocument {
-	
+
 	public void indexDocument(String path, String index, String subindex, String filePath) {
 		try {
 			String indexPath = createIndexPath(path,index,subindex);
+			File f = new File(filePath);
 
 			CSVToJson converter = new CSVToJson();
-			File f = new File(filePath);
 			ArrayList<JSONObject> json = converter.convertFile(f);
+
+
 
 			for(int i = 0; i < json.size(); i++) {
 				sendPostRequest(json.get(i).toJSONString(),indexPath);
@@ -40,7 +42,7 @@ public class IndexDocument {
 		return newPath;
 	}
 
-	
+
 	protected static void sendPostRequest(String json, String indexPath) {
 
 		try {
@@ -53,13 +55,13 @@ public class IndexDocument {
 			message.setContentType("application/json");
 			request.setEntity(message);
 			HttpResponse response = httpClient.execute(request);
-			
+
 			httpClient.close();
 		} catch (ClientProtocolException e) {
 
 			e.printStackTrace();
 		} catch (IOException e) {
-//
+			//
 			e.printStackTrace();
 		}
 	}
