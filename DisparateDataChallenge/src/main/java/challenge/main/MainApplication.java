@@ -38,14 +38,15 @@ public class MainApplication {
 	}
 
 
-	public void run(String database, String dataset, String dataLink) {
+	public void run(String dataIndex, String dataType, String path) {
 
+		
 		//Set index path 
-		String type = dataLink.toLowerCase().replaceAll("\\s+","");
-		String ind = database.toLowerCase().replaceAll("\\s+","");
-		String typeFileName = dataLink.replaceAll("\\s+", "");
-		String indFileName = database.replaceAll("\\s", "");
-		String fileName = "src/main/resources/"+ indFileName + "/" + typeFileName + "/" + dataset;
+		String type = dataType;//dataLink.toLowerCase().replaceAll("\\s+","");
+		String ind = dataIndex;//database.toLowerCase().replaceAll("\\s+","");
+		//String typeFileName = dataLink.replaceAll("\\s+", "");
+		//String indFileName = database.replaceAll("\\s", "");
+		//String fileName = "src/main/resources/"+ indFileName + "/" + typeFileName + "/" + dataset;
 
 		//Launch elasticsearch
 		//runElasticSearch("C:\\elasticsearch-2.4.0\\elasticsearch-2.4.0\\bin\\elasticsearch.bat");
@@ -65,7 +66,7 @@ public class MainApplication {
 		//for(int i = 0; i < typeList.size(); i++) {
 
 		IndexDocument store = new IndexDocument();
-		store.indexDocument("http://localhost:9200",ind,type,fileName);
+		store.indexDocument("http://localhost:9200",ind,type,path);
 		System.out.println("stored");
 		//}
 

@@ -18,7 +18,7 @@ public class SplashWindow extends JWindow {
 	   public SplashWindow(/*String filename, Frame f*/)
 	    {
 		        //super(f);
-		        JLabel l = new JLabel(new ImageIcon("/Users/thomasheritage/Documents/bah.jpg"));
+		        JLabel l = new JLabel(new ImageIcon("./resources/bah.jpg"));
 		        getContentPane().add(l, BorderLayout.CENTER);
 		        pack();
 		        Dimension screenSize =

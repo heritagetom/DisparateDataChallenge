@@ -191,7 +191,8 @@ public class MainFrame {
                 
                 dataIndex= comboBox_Database.getSelectedItem().toString().replaceAll("\\s+","");
 				dataType = comboBox_DataLink.getSelectedItem().toString().replaceAll("\\s+","");
-				path.append("src/main/resources/"+ dataIndex + "/" + dataType+"/");
+				path.append("./resources/"+ dataIndex + "/" + dataType+"/");
+				System.out.println(path.toString());
 		
                 
                 File[] files;
@@ -206,6 +207,7 @@ public class MainFrame {
 	                {
 	                	loader = new FileNameLoader(path.toString());
 	                	files = loader.getNames();
+	                	System.out.println("Hi Don");
 	                	fileNames = new String[files.length-1];
 	                	int index =0;
 	                	for(File f:files)
@@ -214,12 +216,12 @@ public class MainFrame {
 	                			continue;
 	                		else
 	                		{
-	                			//populateComboBox;
 	                			fileNames[index]=f.getName().toString();
 	                			index++;
 	                		}
 	                		
 	                	}
+	                	//populateComboBox;
             			comboBox_DataSet.setModel(new DefaultComboBoxModel(fileNames));
 	                	break;
 	                }
@@ -259,8 +261,8 @@ public class MainFrame {
 				}
 				else
 				{
-					dataIndex = comboBox_Database.getSelectedItem().toString();
-					dataType = comboBox_DataLink.getSelectedItem().toString();
+					dataIndex = comboBox_Database.getSelectedItem().toString().replaceAll("\\s+","").toLowerCase();
+					dataType = comboBox_DataLink.getSelectedItem().toString().replaceAll("\\s+","").toLowerCase();
 					dataFile = comboBox_DataSet.getSelectedItem().toString();
 
 					//Hide frame
@@ -268,7 +270,8 @@ public class MainFrame {
 
 					//Run main application
 					MainApplication main = new MainApplication();
-					main.run(dataIndex, dataType,dataFile);
+					path.append(dataFile);
+					
 
 					if(Desktop.isDesktopSupported()){
 						Desktop desktop = Desktop.getDesktop();
@@ -279,6 +282,7 @@ public class MainFrame {
 							ioex.printStackTrace();
 						}
 					}
+					main.run(dataIndex, dataType,path.toString());
 
 						//FilterSelection.show(dataBase, dataLink, dataSet);
 					}
